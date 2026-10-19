@@ -108,12 +108,19 @@ Logo 动效支持暂停、重播引导后重新入场、减少动态效果、离
 vercel deploy --prod --yes
 ```
 
-域名 DNS 托管在阿里云（HiChina），不使用 Vercel 托管 DNS，因此只需在阿里云 DNS 维护两条记录：
+Vercel 项目的 Git 集成尚未连接 GitHub 账号（团队 `dwwww` 没有登录关联），所以当前是 CLI 推送部署，push 到 GitHub 不会自动触发。需要在 Vercel 项目 Settings → Git 里连一次 GitHub，之后即可自动化。
+
+域名 DNS 托管在阿里云（HiChina），不使用 Vercel 托管 DNS，因此阿里云 DNS 里维护三条记录（TTL 600）：
 
 | 主机记录 | 类型 | 值 |
 | --- | --- | --- |
-| `@` | A | `76.76.21.21` |
-| `www` | CNAME | `cname.vercel-dns.com` |
+| `@` | A | `216.198.79.1` |
+| `@` | A | `64.29.17.1` |
+| `www` | CNAME | `e30f432c4e2eec4b.vercel-dns-017.com` |
+
+顶级域的两条 A 记录与 `www` 的 CNAME 值由 Vercel 按项目生成，重新添加域名时以 `vercel domains verify davidwang.space` 的输出为准。主域名是 `davidwang.space`，`www` 由 `vercel.json` 的 `redirects` 以 308 跳回主域名（保留路径与查询串）。
 
 `*.davidwang.space` 下的其它子域（`mon`、`mcp`、`family`、`realtags`、`tags`、`app`）各自指向独立 Vercel 项目，不受主域名记录影响。
+
+页面加载时会匿名请求 GitHub API 读取 6 个仓库的最近推送时间；共享出口 IP 容易触发 403 限流，此时页面显示「暂时无法连接 GitHub，作品资料仍可查看」，卡片内容不受影响。如需稳定显示，可加一层带 token 的 Vercel Function 代理。
 

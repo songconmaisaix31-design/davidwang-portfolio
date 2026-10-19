@@ -3,7 +3,9 @@ David Wang · 个人作品与实践
 这是当前已发布网页的完整文件导出，包含 HTML、CSS、JavaScript、Logo、截图及素材来源记录。
 导出日期：2026-10-19
 源码版本：381f4a6eecdc89cbfac551c57e4c3f761cad3d36
-已发布网页：https://ai-action-fieldnotes.dapper-star-4521.chatgpt.site
+已发布网页：https://davidwang.space
+源码仓库：https://github.com/songconmaisaix31-design/davidwang-portfolio
+托管：Vercel（项目 davidwang-portfolio，部署目录 dist）
 
 本地预览
 1. 解压 ZIP，在 David-Wang-Portfolio 文件夹打开终端。
@@ -12,6 +14,7 @@ David Wang · 个人作品与实践
    Windows 也可执行：py -m http.server 8000 --directory dist
 3. 在浏览器打开 http://localhost:8000
 4. 在终端按 Ctrl+C 停止预览。
+   安装了 Node.js 时也可以直接执行 npm run dev，内置预览服务默认在 http://127.0.0.1:4173
 
 网页使用 JavaScript 模块，请通过上述本地服务器预览，直接双击 index.html 可能无法完整运行。
 
