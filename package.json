@@ -1,1 +1,12 @@
-{"name":"ai-action-fieldnotes","version":"1.0.0","private":true,"type":"module","description":"AI 行动指南透明玻璃个人作品站"}
+{
+  "name": "davidwang-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "David Wang · 个人作品与实践，无构建静态站点，部署目录 dist",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs"
+  }
+}
