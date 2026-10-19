@@ -1,0 +1,27 @@
+/* Original monoline lettering, shared by every visible David Wang wordmark. */
+.signature { display: block; width: 100%; height: auto; fill: none; stroke: currentColor; stroke-width: 8.8; stroke-linecap: round; stroke-linejoin: round; }
+.brand { display: block; width: 150px; flex: 0 0 auto; }
+.hero h1 { width: 100%; margin-inline: auto; line-height: 0; }
+.hero h1:focus { outline: none; }
+.footer-brand { display: block; width: 145px; flex: 0 0 auto; }
+html.welcome-active { overflow: hidden; }
+.welcome-dialog { position: fixed; inset: 0; width: 100%; height: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 32px; border: 0; overflow: hidden; color: var(--ink); background: #faf9f6; opacity: 1; transition: opacity .55s ease; }
+.welcome-dialog[open] { display: grid; place-items: center; }
+.welcome-dialog::backdrop { background: var(--bg); }
+.welcome-dialog.is-leaving { opacity: 0; pointer-events: none; }
+.welcome-stage { width: min(550px,80vw); text-align: center; transform: translateY(-20px); }
+.hello-script { display: block; width: 100%; height: auto; fill: none; stroke: none; stroke-width: 6.2; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+.welcome-enter { position: absolute; bottom: max(48px,env(safe-area-inset-bottom)); left: 50%; transform: translateX(-50%); padding: 12px 6px; min-height: 44px; color: #72737b; font-size: 14px; white-space: nowrap; }
+.welcome-enter span { margin-left: 12px; }
+.welcome-enter:hover { color: #111; }
+body[data-theme="dark"] .welcome-dialog { background: #faf9f6; color: #111; }
+body[data-theme="dark"] .welcome-enter { color: #72737b; }
+@media (max-width:650px) {
+  .brand { width: 135px; }
+  .footer-brand { width: 135px; }
+  .hero h1 { width: 100%; }
+  .welcome-stage { width: min(440px,88vw); }
+  .welcome-enter { bottom: max(36px,env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-motion:reduce) { .welcome-dialog { transition: none; } }
+@media print { .welcome-dialog { display: none!important; } html.welcome-active { overflow: visible; } }

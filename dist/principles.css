@@ -1,0 +1,188 @@
+/* A single, centered composition: intention, glass infinity, then practice. */
+.principles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding-block: 124px 132px;
+  text-align: center;
+}
+
+.principles-intro {
+  width: min(850px, 100%);
+  margin-inline: auto;
+}
+
+.principles .principles-intro > .section-label {
+  margin: 0 0 22px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.principles-intro h2 {
+  font-size: clamp(39px, 4.15vw, 58px);
+  line-height: 1.35;
+  font-weight: 450;
+  letter-spacing: -.04em;
+  text-wrap: balance;
+}
+
+.principles-title-tail {
+  display: inline-block;
+}
+
+.principles-art-wrap {
+  position: relative;
+  width: min(960px, 100%);
+  margin: 30px auto 46px;
+  isolation: isolate;
+}
+
+.principles-art {
+  position: relative;
+  width: min(900px, 100%);
+  aspect-ratio: 1.85 / 1;
+  margin-inline: auto;
+  pointer-events: none;
+}
+
+.principles-art > :is(canvas, svg, img) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.principles-art > svg {
+  overflow: visible;
+  fill: none;
+  stroke: none;
+}
+
+.principles .values-list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  align-items: start;
+  gap: 36px;
+  width: min(1180px, 100%);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.principle {
+  min-width: 0;
+}
+
+.principle-word {
+  font-size: clamp(27px, 2.35vw, 32px);
+  line-height: 1.4;
+  font-weight: 450;
+  letter-spacing: -.025em;
+}
+
+.principle-description {
+  max-width: 18em;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+  text-wrap: pretty;
+}
+
+@media (max-width: 1180px) {
+  .principles { padding-block: 112px 120px; }
+  .principles .values-list {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 48px 38px;
+    max-width: 900px;
+  }
+  .principle { grid-column: span 2; }
+  .principle:nth-child(4) { grid-column: 2 / 4; }
+  .principle:nth-child(5) { grid-column: 4 / 6; }
+  .principle-description { max-width: 15em; }
+}
+
+@media (max-width: 900px) {
+  .principles { padding-block: 92px 104px; }
+  .principles-art-wrap { margin-top: 26px; margin-bottom: 34px; }
+  .principles .values-list { gap: 42px 26px; }
+  .principle-word { font-size: 28px; }
+  .principle-description { margin-top: 15px; }
+}
+
+@media (max-width: 650px) {
+  .principles { padding-block: 78px 88px; }
+  .principles .principles-intro > .section-label {
+    margin-bottom: 18px;
+    font-size: 16px;
+  }
+  .principles-intro h2 {
+    max-width: 12em;
+    margin-inline: auto;
+    font-size: clamp(32px, 7.3vw, 40px);
+    line-height: 1.45;
+    letter-spacing: -.035em;
+  }
+  .principles-art-wrap { margin: 24px auto 38px; }
+  .principles .values-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 38px 24px;
+    max-width: 490px;
+  }
+  .principle,
+  .principle:nth-child(4) { grid-column: span 2; }
+  .principle:nth-child(5) { grid-column: 2 / 4; }
+  .principle-word { font-size: 27px; }
+  .principle-description {
+    margin-top: 13px;
+    font-size: 16px;
+    line-height: 1.85;
+  }
+}
+
+@media (max-width: 360px) {
+  .principles .values-list { gap: 34px 18px; }
+  .principle-word { font-size: 25px; }
+  .principle-description { font-size: 15px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .principles-art,
+  .principles-art * {
+    animation: none !important;
+    transition: none !important;
+    will-change: auto;
+  }
+}
+
+@media print {
+  .principles { padding-block: 32px; break-inside: avoid; }
+  .principles-art-wrap { display: none !important; }
+  .principles-intro { margin-bottom: 28px; }
+  .principles .principles-intro > .section-label { color: #555; }
+  .principles-intro h2 { font-size: 30px; }
+  .principles .values-list {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 24px 30px;
+  }
+  .principle { grid-column: span 2; break-inside: avoid; }
+  .principle:nth-child(4) { grid-column: 2 / 4; }
+  .principle:nth-child(5) { grid-column: 4 / 6; }
+  .principle-word { color: #111; font-size: 22px; }
+  .principle-description { color: #444; font-size: 12px; margin-top: 10px; }
+}
+
+.principles-motion-toggle {
+  position: absolute;
+  right: 4%;
+  bottom: 0;
+  width: 34px;
+  height: 34px;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  opacity: .65;
+}
+.principles-motion-toggle:hover,.principles-motion-toggle:focus-visible { opacity: 1; }
+.principles-motion-toggle svg { width: 15px; height: 15px; }
+@media (prefers-reduced-motion:reduce) { .principles-motion-toggle { display: none; } }

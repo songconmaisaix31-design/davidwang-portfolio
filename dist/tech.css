@@ -1,0 +1,93 @@
+/* The hero uses bare symbols; wells below are limited to the detail catalog. */
+.hero { min-height: max(940px,100svh); padding-block: 215px 190px; }
+.hero-copy { width: min(600px,100%); z-index: 3; }
+.hero-copy::before { inset: -18px -20px; }
+.hero-tool-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 14px; margin-top: 24px; color: var(--muted); font-size: 12px; }
+.hero-tool-actions button { min-height: 30px; transition: color .2s; }
+.hero-tool-actions button:hover { color: var(--ink); }
+.hero-tool-actions .hero-tool-link { color: var(--ink); font-size: 13px; }
+.hero-tool-link span { margin-left: 7px; }
+.tool-divider { height: 12px; width: 1px; background: var(--line); }
+.tech-constellation { position: absolute; inset: 90px 0; z-index: 2; pointer-events: none; }
+.tech-constellation:focus-within { z-index: 4; }
+.tech-slot { position: absolute; left: 50%; top: 50%; width: 54px; height: 54px; opacity: 0; pointer-events: auto; }
+.tech-orb { display: block; width: 54px; height: 54px; padding: 3px; background: none; border: none; box-shadow: none; border-radius: 0; }
+.tech-orb img { width: 100%; height: 100%; object-fit: contain; filter: drop-shadow(0 2px 5px #243a4d22); transition: transform .25s; }
+.tech-orb:hover img,.tech-orb:focus-visible img { transform: scale(1.12); }
+body[data-theme="dark"] .tech-orb.tech-mono img { filter: invert(1) drop-shadow(0 2px 6px #0005); }
+.tech-orb[data-tech="workbuddy"] img { filter: drop-shadow(0 1px 2px #1d4366a0) drop-shadow(0 2px 7px #15868755); }
+.tech-logo-well { display: grid; place-items: center; width: 65px; height: 65px; padding: 13px; border-radius: 21px; background: rgba(255,255,255,.9); border: 1px solid #ffffff; box-shadow: 0 8px 30px -12px #263a6440,inset 0 1px 0 #fff; transition: transform .3s,box-shadow .3s; }
+.tech-logo-well img { width: 100%; height: 100%; object-fit: contain; }
+.tech-catalog-card .tech-logo-wide { padding: 4px; }
+.tech-detail-head .tech-logo-wide { width: 126px; padding: 10px; }
+.logo-surface-dark { background: #202124; border-color: #35363a; }
+.logo-surface-teal { background: #009688; border-color: #009688; }
+body[data-theme="dark"] .tech-logo-well { box-shadow: 0 8px 28px -12px #0009; }
+.tech-dialog-intro { max-width: 590px; color: var(--muted); margin-bottom: 28px; }
+.tech-catalog-group { margin-top: 32px; }
+.tech-catalog-group h3 { margin-bottom: 15px; font-size: 15px; color: var(--muted); }
+.tech-catalog-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.tech-catalog-card { display: grid; grid-template-columns: 48px minmax(0,1fr); align-items: center; gap: 14px; padding: 17px; background: var(--glass); border: 1px solid var(--line); border-radius: 20px; text-align: left; transition: background .25s; }
+.tech-catalog-card:hover { background: var(--glass-strong); }
+.tech-catalog-card .tech-logo-well { width: 48px; height: 48px; padding: 10px; border-radius: 14px; }
+.tech-catalog-card strong { display: block; font-size: 14px; font-weight: 500; }
+.tech-catalog-card small { display: block; color: var(--muted); line-height: 1.5; font-size: 11px; margin-top: 4px; }
+.tech-detail-head { display: flex; gap: 20px; align-items: center; margin-bottom: 24px; }
+.tech-detail-head .tech-logo-well { flex-shrink: 0; }
+.tech-detail-head h2 { margin: 0; }
+.tech-detail-head p { color: var(--muted); font-size: 13px; }
+.tech-detail-links { display: flex; flex-wrap: wrap; gap: 20px; margin-top: 28px; color: var(--accent); font-size: 14px; }
+.tech-back { margin-top: 30px; color: var(--muted); font-size: 13px; }
+@media (min-width:651px) and (max-width:1050px) {
+  .hero-copy { width: min(550px,76%); }
+  .hero h1 { font-size: clamp(58px,7.4vw,78px); }
+  .hero-statement { font-size: 27px; }
+  .tech-logo-well { width: 56px; height: 56px; border-radius: 18px; padding: 12px; }
+  .tech-slot,.tech-orb { width: 46px; height: 46px; }
+}
+@media (max-width:650px) {
+  .hero { min-height: max(890px,100svh); padding: 280px 24px 235px; }
+  .hero-copy { width: 100%; }
+  .hero h1 { font-size: clamp(44px,11.5vw,65px); }
+  .hero-intro { font-size: 15px; }
+  .hero-statement { font-size: 25px; margin-top: 20px; }
+  .hero-description { font-size: 14px; margin-top: 17px; }
+  .hero-actions { margin-top: 24px; gap: 20px; }
+  .hero-tool-actions { margin-top: 20px; gap: 11px; }
+  .tech-slot,.tech-orb { width: 38px; height: 38px; }
+  .tech-logo-well { width: 52px; height: 52px; border-radius: 17px; padding: 11px; }
+  .tech-catalog-grid { grid-template-columns: 1fr; }
+  .tech-detail-head h2 { font-size: 29px; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .tech-orb:hover img { transform: none; }
+  #replay-tech,#pause-tech,.tool-divider { display: none; }
+}
+@media print {
+  .tech-constellation,.hero-tool-actions { display: none; }
+  .hero { min-height: 0; padding: 20px 0; }
+}
+
+/* A centered name and a low control bar keep the whole hero quiet. */
+.hero { min-height: max(700px,100svh); padding: 120px 32px; }
+.hero-copy { width: min(780px,76vw); }
+.hero-copy::before { inset: -32px -42px; }
+.hero > .hero-tool-actions { position: absolute; left: 50%; bottom: 55px; transform: translateX(-50%); width: max-content; max-width: calc(100% - 40px); margin: 0; z-index: 4; }
+.tech-orb.tech-mascot { padding: 0; }
+.tech-orb.tech-mascot img { filter: drop-shadow(0 3px 5px #243a4d18); }
+@media (max-width:1050px) {
+  .hero-copy { width: min(700px,78vw); }
+}
+@media (max-width:650px) {
+  .hero { min-height: max(690px,100svh); padding: 100px 24px; }
+  .hero-copy { width: 88vw; }
+  .hero-copy::before { inset: -24px -10px; }
+  .hero > .hero-tool-actions { bottom: 52px; gap: 12px; }
+}
+@media print {
+  .hero { min-height: 0; padding: 20px 0; }
+  .hero-copy { width: min(600px,100%); }
+  .signature path { stroke-dasharray: none!important; stroke-dashoffset: 0!important; }
+}
+.tech-attribution { margin-top: 20px; font-size: 12px; color: var(--muted); }
+body[data-theme="dark"] .tech-orb.tech-mascot:not(.tech-mono) img { filter: drop-shadow(0 0 1px #ffffff80) drop-shadow(0 3px 6px #0005); }

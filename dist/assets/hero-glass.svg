@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="960" viewBox="0 0 960 960" fill="none" role="img" aria-labelledby="title"><title id="title">Interlocking translucent glass orbits</title><defs>
+      <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset=".22" stop-color="#e5f0ff" stop-opacity=".5"/><stop offset=".48" stop-color="#e4f9f6" stop-opacity=".28"/><stop offset=".68" stop-color="#a9bce7" stop-opacity=".64"/><stop offset=".84" stop-color="#fff" stop-opacity=".92"/><stop offset="1" stop-color="#c7c9fb" stop-opacity=".45"/></linearGradient>
+      <linearGradient id="edge" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset=".38" stop-color="#fff" stop-opacity=".76"/><stop offset=".72" stop-color="#7a9cde" stop-opacity=".55"/><stop offset="1" stop-color="#fff" stop-opacity=".85"/></linearGradient>
+      <linearGradient id="flow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#97aae8" stop-opacity=".75"/><stop offset=".47" stop-color="#f4fcff" stop-opacity=".88"/><stop offset="1" stop-color="#8bcfcb" stop-opacity=".8"/></linearGradient>
+      <linearGradient id="depth" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#adc0e4" stop-opacity=".18"/><stop offset=".6" stop-color="#84a0d8" stop-opacity=".43"/><stop offset="1" stop-color="#d8e7fb" stop-opacity=".4"/></linearGradient>
+      <radialGradient id="orb" cx=".3" cy=".23" r=".8"><stop stop-color="#fff" stop-opacity=".98"/><stop offset=".2" stop-color="#edf9ff" stop-opacity=".8"/><stop offset=".53" stop-color="#bdcffa" stop-opacity=".42"/><stop offset=".79" stop-color="#aac5e6" stop-opacity=".55"/><stop offset="1" stop-color="#f1f9ff" stop-opacity=".7"/></radialGradient>
+      <radialGradient id="blue"><stop stop-color="#9eb6ff" stop-opacity=".72"/><stop offset="1" stop-color="#a8c0ff" stop-opacity="0"/></radialGradient>
+      <radialGradient id="mint"><stop stop-color="#9ee4d8" stop-opacity=".76"/><stop offset="1" stop-color="#c0eade" stop-opacity="0"/></radialGradient>
+      <radialGradient id="purple"><stop stop-color="#c7b8f7" stop-opacity=".75"/><stop offset="1" stop-color="#ded5fa" stop-opacity="0"/></radialGradient>
+      <filter id="blur"><feGaussianBlur stdDeviation="20"/></filter>
+      <filter id="soft"><feGaussianBlur stdDeviation="7"/></filter>
+      <filter id="shadow" x="-40%" y="-40%" width="180%" height="200%" color-interpolation-filters="sRGB"><feGaussianBlur in="SourceAlpha" stdDeviation="12" result="blurred"/><feOffset in="blurred" dx="0" dy="12" result="offset"/><feColorMatrix in="offset" type="matrix" values="0 0 0 0 0.36 0 0 0 0 0.47 0 0 0 0 0.65 0 0 0 0.16 0" result="drop"/><feMerge><feMergeNode in="drop"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3"/></filter>
+    </defs><defs><g id="ring">
+ <path d="M -274 0 a274 151 0 1 0 548 0 a274 151 0 1 0 -548 0 Z M -192 0 a192 83 0 1 1 384 0 a192 83 0 1 1 -384 0 Z" transform="translate(0 25)" fill="url(#depth)" fill-rule="evenodd" stroke="#8fabe1" stroke-opacity=".34" stroke-width="1.5"/>
+ <path d="M -274 0 A274 151 0 0 0 274 0 L274 25 A274 151 0 0 1 -274 25Z" fill="url(#depth)"/>
+ <path d="M -192 0 A192 83 0 0 1 192 0 L192 25 A192 83 0 0 0 -192 25Z" fill="#a2bae5" fill-opacity=".24"/>
+ <path d="M -274 0 a274 151 0 1 0 548 0 a274 151 0 1 0 -548 0 Z M -192 0 a192 83 0 1 1 384 0 a192 83 0 1 1 -384 0 Z" fill="url(#glass)" fill-rule="evenodd" stroke="url(#edge)" stroke-width="2.1"/>
+ <ellipse rx="268" ry="145" stroke="white" stroke-opacity=".48" stroke-width="1.5"/>
+ <ellipse rx="199" ry="90" stroke="white" stroke-opacity=".63" stroke-width="1.8"/>
+ <path d="M -243 -54 C-194 -142 105 -169 237 -65" stroke="white" stroke-width="5" stroke-opacity=".7" stroke-linecap="round"/>
+ <path d="M -247 58 C-166 146 92 158 240 64" stroke="#728fcb" stroke-width="4" stroke-opacity=".24" stroke-linecap="round"/>
+ <path d="M -257 46 C-185 140 81 165 245 59" stroke="white" stroke-width="2.1" stroke-opacity=".65" stroke-linecap="round"/>
+ <path d="M -149 54 C-67 94 96 85 174 27" stroke="white" stroke-width="4" stroke-opacity=".6" stroke-linecap="round"/>
+</g><clipPath id="frontHalf"><rect x="-310" y="7" width="620" height="205"/></clipPath></defs><ellipse cx="496" cy="801" rx="216" ry="27" fill="#8293b7" fill-opacity=".2" filter="url(#blur)"/>
+<ellipse cx="398" cy="397" rx="322" ry="302" fill="url(#blue)" opacity=".58"/>
+<ellipse cx="644" cy="587" rx="243" ry="267" fill="url(#mint)" opacity=".66"/>
+<ellipse cx="580" cy="294" rx="260" ry="239" fill="url(#purple)" opacity=".63"/>
+<g transform="translate(429 470) rotate(-29)" filter="url(#shadow)"><use xlink:href="#ring" href="#ring"/></g>
+<g transform="translate(527 428) rotate(63)" filter="url(#shadow)"><use xlink:href="#ring" href="#ring"/></g>
+<g transform="translate(429 470) rotate(-29)"><g clip-path="url(#frontHalf)"><use xlink:href="#ring" href="#ring"/></g></g>
+<ellipse cx="349" cy="288" rx="29" ry="9" transform="rotate(-36 349 288)" fill="white" fill-opacity=".8" filter="url(#soft)"/>
+<path d="M352 264v26m-13-13h26" stroke="white" stroke-opacity=".85" stroke-width="2" stroke-linecap="round"/>
+<circle cx="704" cy="647" r="5" fill="white" fill-opacity=".8"/>
+<g filter="url(#shadow)"><circle cx="745" cy="247" r="25" fill="url(#orb)" stroke="url(#edge)" stroke-width="1.5"/><path d="M 727.5 244.0 A 18.25 18.25 0 0 1 748.0 228.75" stroke="white" stroke-opacity=".8" stroke-width="2.3" stroke-linecap="round"/></g><g filter="url(#shadow)"><circle cx="209" cy="659" r="17" fill="url(#orb)" stroke="url(#edge)" stroke-width="1.5"/><path d="M 197.1 656.96 A 12.41 12.41 0 0 1 211.04 646.59" stroke="white" stroke-opacity=".8" stroke-width="2.3" stroke-linecap="round"/></g></svg>

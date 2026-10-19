@@ -1,0 +1,48 @@
+/* The introduction sits inside a spacious, unmarked planetary belt. */
+.hero { width: min(1480px,100%); min-height: clamp(850px,100svh,1000px); padding: 174px 28px 126px; display: grid; grid-template-columns: minmax(0,1fr); place-items: center; gap: 0; position: relative; isolation: isolate; overflow: hidden; overflow: clip; }
+.hero-copy { width: min(650px,100%); position: relative; z-index: 2; text-align: center; }
+.hero-copy::before { content: ''; position: absolute; z-index: -1; inset: -36px -42px; border-radius: 50%; background: radial-gradient(ellipse,var(--bg) 20%,transparent 72%); opacity: .82; pointer-events: none; }
+.hero-intro { font-size: 18px; margin-bottom: 12px; letter-spacing: .015em; }
+.hero-statement { font-size: clamp(27px,2.65vw,34px); line-height: 1.55; margin-top: 25px; font-weight: 420; }
+.hero-statement br { display: none; }
+.hero-description { font-size: 17px; line-height: 1.9; margin-top: 21px; }
+.hero-actions { justify-content: center; gap: 28px; margin-top: 34px; }
+.hero .scroll-cue { bottom: 26px; z-index: 3; }
+body[data-theme="dark"] .hero-copy::before { opacity: .9; }
+/* The principles sculpture keeps its independent glass renderer and fallback. */
+.glass-canvas,.glass-fallback { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: fill; pointer-events: none; }
+.glass-canvas { opacity: 0; }
+.glass-ready > .glass-canvas { opacity: 1; }
+.glass-ready > .glass-fallback { visibility: hidden; }
+.glass-fallback.glass-fallback-dark { display: none; }
+body[data-theme="dark"] .glass-fallback-light { display: none; }
+body[data-theme="dark"] .glass-fallback-dark { display: block; }
+@media (max-width:1100px) {
+  .hero { min-height: 890px; padding-top: 165px; padding-bottom: 120px; }
+  .hero-statement { font-size: 30px; }
+}
+@media (max-width:760px) {
+  .hero { min-height: 860px; padding-inline: 28px; }
+  .hero-copy { max-width: 580px; }
+  .hero-statement { font-size: 29px; }
+}
+@media (max-width:650px) {
+  .hero { min-height: max(820px,100svh); padding: 151px 24px 115px; }
+  .hero-copy { width: 100%; }
+  .hero-copy::before { inset: -32px -12px; }
+  .hero-intro { font-size: 17px; margin-bottom: 12px; }
+  .hero-statement { font-size: clamp(25px,6.2vw,29px); line-height: 1.55; margin-top: 23px; }
+  .hero-statement br { display: initial; }
+  .hero-description { font-size: 16px; line-height: 1.9; margin-top: 20px; }
+  .hero-actions { gap: 20px; margin-top: 29px; }
+  .hero .scroll-cue { bottom: 22px; }
+}
+@media (prefers-reduced-transparency:reduce) {
+  .hero-copy::before { opacity: 1; background: radial-gradient(ellipse,var(--bg) 48%,transparent 74%); }
+}
+@media print {
+  .hero { width: 100%; min-height: 0; padding: 20px 0; display: block; overflow: visible; }
+  .hero-copy { text-align: left; }
+  .hero-copy::before { display: none; }
+  .hero-actions { justify-content: flex-start; }
+}

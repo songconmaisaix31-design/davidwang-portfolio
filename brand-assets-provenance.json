@@ -1,0 +1,61 @@
+{
+  "retrievedAt": "2026-10-19",
+  "assets": [
+    {
+      "file": "iflytek-logo.svg",
+      "source": "https://www.iflytek.com/en/Public/Uploads/uploadfile/images/20230812/comlogo1.svg",
+      "sourcePage": "https://www.iflytek.com/en/",
+      "note": "Official iFLYTEK homepage header asset, downloaded byte-for-byte. Original SVG viewBox 0 0 168 33.",
+      "sha256": "ae825a3ddb3e7bed8c4a1691c6676cca9d003d673ba5089b246178c9bd43727f"
+    },
+    {
+      "file": "iflytek-logo-white.svg",
+      "source": "https://www.iflytek.com/en/Public/Uploads/uploadfile/images/20230812/comlogo2-621.svg",
+      "sourcePage": "https://www.iflytek.com/en/",
+      "note": "Official iFLYTEK homepage footer white asset, downloaded byte-for-byte.",
+      "sha256": "4a8e7eac58b22c9de0ee0df0685cc68ad5deb5a0a5a663ae699d1f4b36a0b1d0"
+    },
+    {
+      "file": "nvidia-logo.svg",
+      "source": "https://www.nvidia.com/en-us/about-nvidia/legal-info/logo-brand-usage/",
+      "sourcePage": "https://www.nvidia.com/en-us/about-nvidia/legal-info/logo-brand-usage/",
+      "note": "Official NVIDIA website header symbol n24-nvidia-logo extracted verbatim to standalone svg wrapper. Paths, transforms, colors and viewBox preserved; not redrawn. Eye and wordmark remain together. Prefer rendering on clear light background.",
+      "sha256": "1e3294ff61f6970b587261ba2192e6b2f43167c1eefeb69f407f2fc65309f176"
+    },
+    {
+      "file": "nvidia-brand-horizontal-original.svg",
+      "source": "https://www.nvidia.com/content/dam/en-zz/Solutions/about-nvidia/logo-and-brand/nvidia-logo-horz.svg",
+      "sourcePage": "https://www.nvidia.com/en-us/about-nvidia/legal-info/logo-brand-usage/",
+      "note": "Official downloadable horizontal SVG, downloaded byte-for-byte. Large 2560x1440 artboard.",
+      "sha256": "4325ea0c4078941bce84b2b1c6f045c3daf36de44cfc4c89ac5c49186f4874e8"
+    },
+    {
+      "file": "tencent-logo.png",
+      "source": "https://www.tencent.com/wp-content/uploads/2024/05/logo@2x-en.png",
+      "sourcePage": "https://www.tencent.com/en-us/",
+      "note": "Official Tencent homepage header asset, downloaded byte-for-byte. 285x54 RGBA PNG.",
+      "sha256": "c79699e8e5e0dd02f70ff0359f29881892fa10f578d39f5af963f0287cb0af5f"
+    },
+    {
+      "file": "github-avatar.jpg",
+      "source": "https://avatars.githubusercontent.com/u/276621188?v=4",
+      "sourcePage": "https://github.com/songconmaisaix31-design",
+      "note": "Actual public GitHub avatar (owner id 276621188), downloaded byte-for-byte. 460x460 JPEG. Anime/meme artwork as currently chosen by user.",
+      "sha256": "7663eb25d369522eaf9dd340c49a61c9c7381d77d149148d7c34bf47cce62162"
+    },
+    {
+      "file": "spdb-logo.gif",
+      "source": "https://download.spdb.com.cn/wap/zh_CN/imgs/common/banklogo.gif",
+      "sourcePage": "https://download.spdb.com.cn/wap/index.html",
+      "note": "Genuine official SPD Bank mobile-site logo, 136x38. GIF downloaded byte-for-byte; PNG is a pixel-preserving RGBA format conversion. Prefer rendered width <=136px because source resolution is small. Current main-site brand footer SVG/PNG was verified but could not be downloaded (502).",
+      "sha256": "8a78b1a1b03a9489be65318d910d09f6a09b99b28b9c5d72be08a9456135a0fe"
+    },
+    {
+      "file": "spdb-logo.png",
+      "source": "https://download.spdb.com.cn/wap/zh_CN/imgs/common/banklogo.gif",
+      "sourcePage": "https://download.spdb.com.cn/wap/index.html",
+      "note": "Genuine official SPD Bank mobile-site logo, 136x38. GIF downloaded byte-for-byte; PNG is a pixel-preserving RGBA format conversion. Prefer rendered width <=136px because source resolution is small. Current main-site brand footer SVG/PNG was verified but could not be downloaded (502).",
+      "sha256": "166a4b7169311093a1aebe9cc49a2d0a3d2f36727dae35bfe2e2b609cced4f8e"
+    }
+  ]
+}

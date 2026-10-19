@@ -1,0 +1,92 @@
+{
+  "updatedAt": "2026-10-19",
+  "assets": [
+    {
+      "file": "dist/assets/tech/cursor-symbol.svg",
+      "sourceAsset": "cursor.svg",
+      "note": "Official icon group and original clipping retained; outer app background and outline omitted. Native paths and colors unchanged.",
+      "sha256": "dd438266fc69ee9f118f54bb43f70e918277d2efe06b3adf9cfcc43a8df80c82"
+    },
+    {
+      "file": "dist/assets/tech/openai-symbol.svg",
+      "sourceAsset": "https://openai.com/favicon.svg",
+      "note": "Official blossom paths extracted without the favicon background; original light-theme fill resolved to black.",
+      "sha256": "1d81b101a0a2a4f7430a42807bdc6163a7d9c8c1861a4fca3810ef118b8df410"
+    },
+    {
+      "file": "dist/assets/tech/mcp-symbol.svg",
+      "sourceAsset": "https://modelcontextprotocol.io/",
+      "note": "Official first three symbol paths extracted without wordmark; stroke and geometry unchanged.",
+      "sha256": "654711a56299a1dea3dbc3b40a980511b94358258548141bf9250ddee9db6cc1"
+    },
+    {
+      "file": "dist/assets/tech/langgraph-symbol.svg",
+      "sourceAsset": "langgraph.svg",
+      "note": "Official symbol path extracted without wordmark or app tile; original blue fill retained.",
+      "sha256": "8dc89094522b4d6712340293d43845aaebeab7f50f75756000403900e5e4cd80"
+    },
+    {
+      "file": "dist/assets/tech/nvidia-symbol.svg",
+      "sourceAsset": "../nvidia-logo.svg",
+      "note": "Official NVIDIA eye mark extracted verbatim from the existing official header asset; wordmark omitted.",
+      "sha256": "bc2a5d63e2ae491d3e2be611ab2a77d1e9d8374f5f888480e2cc62fa125079a0"
+    },
+    {
+      "brand": "OpenCode",
+      "filename": "opencode.svg",
+      "sourcePage": "https://opencode.ai/brand",
+      "sourceURL": "https://raw.githubusercontent.com/anomalyco/opencode/dev/packages/console/app/src/asset/brand/opencode-logo-light.svg",
+      "note": "Official original standalone symbol; downloaded unchanged, transparent. Light variant refers to light page backgrounds.",
+      "standaloneCheck": {
+        "validXML": true,
+        "viewBox": "0 0 240 300",
+        "unresolvedIDs": []
+      },
+      "file": "dist/assets/tech/opencode.svg",
+      "sha256": "b47a4fecc77599382e238868e74064bbe92307b0e253a32f0b1a026517a2d2a6"
+    },
+    {
+      "brand": "DeepSeek Harness",
+      "filename": "ds-harness-black.svg",
+      "sourcePage": "https://github.com/deepseek-ai/deepseek-harness",
+      "sourceURL": "https://raw.githubusercontent.com/deepseek-ai/deepseek-harness/master/apps/web/public/favicon.svg",
+      "note": "Official original black whale symbol. Native fill #000; unchanged. Not a recolored generic DeepSeek asset.",
+      "standaloneCheck": {
+        "validXML": true,
+        "viewBox": "0 0 50 50",
+        "unresolvedIDs": []
+      },
+      "file": "dist/assets/tech/ds-harness-black.svg",
+      "sha256": "9e983b4f649c25c6ca0623a50be1a6e705fd8f49f756638b980fa13b40575ab6"
+    },
+    {
+      "brand": "Qoder",
+      "filename": "qoder-symbol.svg",
+      "sourcePage": "https://qoder.com/",
+      "sourceURL": "https://qoder.com/favIcon.svg",
+      "note": "Official favicon paths and colors preserved verbatim. Only outer #F3F3F3 background rectangle removed to produce user-requested transparent symbol. Unchanged source retained as qoder.svg.",
+      "standaloneCheck": {
+        "validXML": true,
+        "viewBox": "0 0 206 206",
+        "unresolvedIDs": []
+      },
+      "file": "dist/assets/tech/qoder-symbol.svg",
+      "sha256": "0efc0b9a167dbbdfdcee070d4c6fcb719cb07546c9b0264747dfcade9c176511"
+    },
+    {
+      "brand": "Tencent WorkBuddy",
+      "filename": "workbuddy-symbol.svg",
+      "sourcePage": "https://www.workbuddy.cn/",
+      "sourceURL": "https://assets.workbuddy.cn/web/workbuddy/7e170c91f6fb3aa5720dd4381254492d08bf980c/assets/logo.svg",
+      "note": "Official current WorkBuddy favicon white cat path, two eye rectangles, and original white gradient extracted unchanged. Outer green app background, background glow, and app-tile clipping omitted; 50x50 viewBox fits full original symbol paths. Use on dark surfaces. Original retained as workbuddy-current.svg. User spelling Workbody inferred to mean Tencent WorkBuddy; parent will disclose assumption.",
+      "standaloneCheck": {
+        "validXML": true,
+        "viewBox": "0 0 50 50",
+        "unresolvedIDs": []
+      },
+      "file": "dist/assets/tech/workbuddy-symbol.svg",
+      "sha256": "200601b7b81192e0ebc6f8c87f2f29bb365cfec3f9058aceb9751c0b9d29e843"
+    }
+  ],
+  "assumption": "User spelling Workbody interpreted as Tencent WorkBuddy and disclosed in conversation."
+}

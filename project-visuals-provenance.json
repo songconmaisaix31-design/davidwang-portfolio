@@ -1,0 +1,145 @@
+[
+  {
+    "id": "crewtrace",
+    "asset": "assets/crewtrace-hero-3ef15dd.png",
+    "kind": "screenshot",
+    "source": "https://github.com/songconmaisaix31-design/CrewTrace/blob/dcb9ae78b0836a6e067d1f2abaa919f8e243d23b/design-audit/evidence/home-desktop.png",
+    "label": "首页设计迭代 · 仓库截图 · 2026.10.19",
+    "branch": "main",
+    "commit": "dcb9ae78b0836a6e067d1f2abaa919f8e243d23b",
+    "captureCommit": "3ef15dd00b9451a42e2a5b34ef7d6d24a0877f76",
+    "captureDate": "2026-10-19",
+    "syncedAt": "2026-10-19",
+    "method": "Unmodified PNG screenshots downloaded from the project repository design-audit/evidence directory. The audit README identifies the older source baseline for these captures.",
+    "dataScope": "Repository screenshots show public collaboration data at their original capture time; this sync performed no business writes.",
+    "notes": [
+      "Source links and frontend descriptions follow current main, including the three workspace panels.",
+      "These archived screenshots predate the latest frontend changes; both the visible labels and project scope identify them as design iteration records.",
+      "The current live project URL was visually checked in Browser and still shows an earlier frontend.",
+      "The Sites managed preview infrastructure remains unavailable, so no fresh screenshots of main or complete portfolio browser QA were claimed."
+    ],
+    "evidence": "https://github.com/songconmaisaix31-design/CrewTrace/blob/dcb9ae78b0836a6e067d1f2abaa919f8e243d23b/design-audit/README.md",
+    "images": [
+      {
+        "asset": "assets/crewtrace-hero-3ef15dd.png",
+        "label": "首页设计迭代 · 仓库截图 · 2026.10.19",
+        "source": "https://github.com/songconmaisaix31-design/CrewTrace/blob/dcb9ae78b0836a6e067d1f2abaa919f8e243d23b/design-audit/evidence/home-desktop.png",
+        "width": 1440,
+        "height": 900,
+        "bytes": 806410,
+        "sha256": "c97995510cc2906a57a073a1be316418d6b67733c0e57643251e092250baa96b"
+      },
+      {
+        "asset": "assets/crewtrace-tasks-3ef15dd.png",
+        "label": "任务面板设计迭代 · 仓库截图 · 2026.10.19",
+        "source": "https://github.com/songconmaisaix31-design/CrewTrace/blob/dcb9ae78b0836a6e067d1f2abaa919f8e243d23b/design-audit/evidence/tasks-desktop.png",
+        "width": 1440,
+        "height": 900,
+        "bytes": 476267,
+        "sha256": "ed379c3df0ac14901b61b445855779d0115cc28595107050e13fedff6a9b730d"
+      }
+    ]
+  },
+  {
+    "id": "opendashboard",
+    "asset": "assets/opendashboard-h2-fixture-20261019.jpg",
+    "kind": "screenshot",
+    "source": "https://204421.xyz/h2-sentinel/?mode=fixture",
+    "label": "前端实拍 · 示例数据 · 2026.10.19"
+  },
+  {
+    "id": "realtag",
+    "asset": "assets/realtag-desktop.png",
+    "kind": "screenshot",
+    "source": "https://raw.githubusercontent.com/songconmaisaix31-design/tongpin-real-tags/main/docs/qa/hackathon/integration/screenshots/home-desktop-1100x900.png",
+    "label": "仓库中的实际运行截图"
+  },
+  {
+    "id": "astrocyte",
+    "asset": "assets/astrocyte-attention-32672499.jpg",
+    "kind": "screenshot",
+    "source": "https://github.com/songconmaisaix31-design/Astrocyte/tree/3267249922082cb1808b6529a2f04084d40c1f92/web",
+    "label": "资料沉淀 · 前端实拍",
+    "branch": "songconmaisaix31-design/frontend-observatory-20261018",
+    "commit": "3267249922082cb1808b6529a2f04084d40c1f92",
+    "captureDate": "2026-10-19",
+    "method": "Browser screenshots of the original React production build connected to the same commit’s actual Go backend.",
+    "dataScope": "Isolated empty SQLite instance; the material import drawer was opened without submitting an import.",
+    "build": "TypeScript/Vite frontend and Go backend builds passed; application source unchanged.",
+    "notes": [
+      "The current frontend has no implementation of the fixture mode described in an older README section.",
+      "No seeded records, API mocks or model calls were used."
+    ],
+    "images": [
+      {
+        "asset": "assets/astrocyte-attention-32672499.jpg",
+        "label": "资料沉淀 · 前端实拍",
+        "source": "https://github.com/songconmaisaix31-design/Astrocyte/tree/3267249922082cb1808b6529a2f04084d40c1f92/web",
+        "width": 1357,
+        "height": 932,
+        "bytes": 61924,
+        "sha256": "cd99a07f7643bbf8ddf145d38e1c3f66a2775c53fd61c2d99a1844f8e4c7d41d"
+      },
+      {
+        "asset": "assets/astrocyte-import-32672499.jpg",
+        "label": "添加资料 · 前端实拍",
+        "source": "https://github.com/songconmaisaix31-design/Astrocyte/tree/3267249922082cb1808b6529a2f04084d40c1f92/web",
+        "width": 1363,
+        "height": 936,
+        "bytes": 61087,
+        "sha256": "9e51a5e7f70a551d354d9a02efe207c50fb81ec06955e28a50df5075b6d25ed9"
+      }
+    ]
+  },
+  {
+    "id": "morphogenesis",
+    "asset": "assets/morphogenesis-signals-20261019.jpg",
+    "kind": "screenshot",
+    "source": "https://github.com/songconmaisaix31-design/Morphogenesis/tree/ddd2849afe330bf221d405dc2b91948c2416bd47/src/env-observatory",
+    "label": "研究任务池 · 实拍 · 示例数据",
+    "branch": "codex/morphogenesis-mainline",
+    "commit": "ddd2849afe330bf221d405dc2b91948c2416bd47",
+    "captureDate": "2026-10-19",
+    "method": "Browser screenshots of the original env-observatory HTML and FastAPI service from the pinned mainline commit.",
+    "dataScope": "Isolated synthetic-only state generated by the repository’s own seed.py: one project, six candidate tasks and four notes.",
+    "build": "Original Python service started and returned healthy state; HTML, server.py, seed.py and data.js Git blob hashes match the source commit.",
+    "notes": [
+      "Screenshots are labelled as repository example data.",
+      "Provider probes and Worker execution were disabled; no model calls, task claims or task execution occurred."
+    ],
+    "images": [
+      {
+        "asset": "assets/morphogenesis-signals-20261019.jpg",
+        "label": "研究任务池 · 实拍 · 示例数据",
+        "source": "https://github.com/songconmaisaix31-design/Morphogenesis/tree/ddd2849afe330bf221d405dc2b91948c2416bd47/src/env-observatory",
+        "width": 1348,
+        "height": 926,
+        "bytes": 99940,
+        "sha256": "0edac67c3669fb000195533f368bc055f11d008fd2c1c5d3f8dbb53180c121e5"
+      },
+      {
+        "asset": "assets/morphogenesis-workspace-20261019.jpg",
+        "label": "科研工作台 · 实拍 · 示例数据",
+        "source": "https://github.com/songconmaisaix31-design/Morphogenesis/tree/ddd2849afe330bf221d405dc2b91948c2416bd47/src/env-observatory",
+        "width": 1348,
+        "height": 926,
+        "bytes": 100088,
+        "sha256": "9439f7201c4dda980822602fbc0888fba230dbf753c9559d921e725f65632d38"
+      }
+    ]
+  },
+  {
+    "id": "finance",
+    "asset": null,
+    "kind": "text",
+    "source": "https://github.com/songconmaisaix31-design/finance-agent-lab",
+    "label": null
+  },
+  {
+    "id": "research",
+    "asset": null,
+    "kind": "award-logo",
+    "source": null,
+    "label": null
+  }
+]

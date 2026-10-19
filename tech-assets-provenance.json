@@ -1,0 +1,366 @@
+{
+  "retrievedAt": "2026-10-19",
+  "assets": [
+    {
+      "filename": "typescript.svg",
+      "sourcePage": "https://www.typescriptlang.org/branding/",
+      "sourceURL": "https://www.typescriptlang.org/branding/ts-logo-512.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 1729,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 512 512",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/typescript.svg",
+      "sha256": "139ae451b37a00251fe24358191699efa665f63f1c8369cb9dad833159e159e2"
+    },
+    {
+      "filename": "python.svg",
+      "sourcePage": "https://www.python.org/community/logos/",
+      "sourceURL": "https://s3.dualstack.us-east-2.amazonaws.com/pythondotorg-assets/media/files/python-logo-only.svg",
+      "note": "Downloaded unchanged from official page or official repository.",
+      "bytes": 9605,
+      "mime": "image/svg+xml",
+      "viewBox": null,
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/python.svg",
+      "sha256": "baec8662a1461c2cacc326b54d2727cb2f1ce07ba02d00f5b826d035104f649f"
+    },
+    {
+      "filename": "go.svg",
+      "sourcePage": "https://go.dev/brand",
+      "sourceURL": "https://go.dev/images/go-logo-blue.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 1472,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 207 78",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/go.svg",
+      "sha256": "c89d8c4a31dd4f6487e69bc3bdb6585a52466a393f6e8d863bfc1a0189bc213c"
+    },
+    {
+      "filename": "react.png",
+      "sourcePage": "https://react.dev/",
+      "sourceURL": "https://react.dev/apple-touch-icon.png",
+      "note": "Downloaded unchanged from official page or official repository.",
+      "bytes": 5670,
+      "mime": "image/png",
+      "dimensions": [
+        180,
+        180
+      ],
+      "file": "dist/assets/tech/react.png",
+      "sha256": "f1fb8047b61b7c7ada13d7c17eb71eec839e1d6bdbe110b4b09521d17d17f57c"
+    },
+    {
+      "filename": "vite.svg",
+      "sourcePage": "https://vite.dev/",
+      "sourceURL": "https://vite.dev/logo.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 10966,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 23 14",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/vite.svg",
+      "sha256": "4494223d51e62bc6d14fb2399d12de4dae54740c6977ea66b7b6e914913d9367"
+    },
+    {
+      "filename": "docker.png",
+      "sourcePage": "https://www.docker.com/company/newsroom/media-resources/",
+      "sourceURL": "https://www.docker.com/wp-content/uploads/2022/03/Moby-logo.png",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 18158,
+      "mime": "image/png",
+      "dimensions": [
+        601,
+        431
+      ],
+      "file": "dist/assets/tech/docker.png",
+      "sha256": "53c161304c635a8b6bbd0f94310634beaa49b75b73521e157e5edd29c3a2784f"
+    },
+    {
+      "filename": "cursor.svg",
+      "sourcePage": "https://cursor.com/brand",
+      "sourceURL": "https://cursor.com/marketing-static/favicon-light.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository; third-party CDN URL found in official page source where applicable",
+      "bytes": 4388,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 512 512",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/cursor.svg",
+      "sha256": "78f169abca311d70e18ada789ccf1a55b4ca0306822f21a9ab0c2658ed88dbe0"
+    },
+    {
+      "filename": "openai.ico",
+      "sourcePage": "https://openai.com/",
+      "sourceURL": "https://openai.com/favicon.ico",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 15406,
+      "mime": "image/vnd.microsoft.icon",
+      "dimensions": [
+        48,
+        48
+      ],
+      "icoSizes": [
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ],
+        [
+          48,
+          48
+        ]
+      ],
+      "file": "dist/assets/tech/openai.ico",
+      "sha256": "9747c13cd87b36ebf2ab567b9d0bc2ff49b5a4f46f4f51e4d053024f579fb9a0"
+    },
+    {
+      "filename": "claude.png",
+      "sourcePage": "https://claude.com/",
+      "sourceURL": "https://assets.claude.com/95a868946ac8a31e5ff832e2899f294aa368b836.png",
+      "note": "Downloaded unchanged from official website or official GitHub repository; third-party CDN URL found in official page source where applicable",
+      "bytes": 1198,
+      "mime": "image/png",
+      "dimensions": [
+        32,
+        32
+      ],
+      "file": "dist/assets/tech/claude.png",
+      "sha256": "4004381309500f25e49a1ae639912ce307ea81da74cc383954a1ac8b9d343fe6"
+    },
+    {
+      "filename": "deepseek.ico",
+      "sourcePage": "https://www.deepseek.com/",
+      "sourceURL": "https://www.deepseek.com/favicon.ico",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 209762,
+      "mime": "image/vnd.microsoft.icon",
+      "dimensions": [
+        225,
+        225
+      ],
+      "icoSizes": [
+        [
+          225,
+          225
+        ]
+      ],
+      "file": "dist/assets/tech/deepseek.ico",
+      "sha256": "30a4420e6e4dcb17fd7de560c5004346c2bc8cd971d2d5f5ee15326603e51321"
+    },
+    {
+      "filename": "qwen.png",
+      "sourcePage": "https://qwen.ai/",
+      "sourceURL": "https://img.alicdn.com/imgextra/i4/O1CN01OXv3EM1FN8t9W4P79_!!6000000000474-2-tps-80-80.png",
+      "note": "Downloaded unchanged from official website or official GitHub repository; third-party CDN URL found in official page source where applicable",
+      "bytes": 1658,
+      "mime": "image/png",
+      "dimensions": [
+        80,
+        80
+      ],
+      "file": "dist/assets/tech/qwen.png",
+      "sha256": "cd9390bc4209c319121d111f3a1f535b3c7dd909b8f860d41acc9744138d58df"
+    },
+    {
+      "filename": "solidity.svg",
+      "sourcePage": "https://docs.soliditylang.org/",
+      "sourceURL": "https://docs.soliditylang.org/en/latest/_static/img/logo.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 574,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 100 160",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/solidity.svg",
+      "sha256": "2be927eb5ef183e497ec1b357d2092372794831059dc34cad6fb943d099c6d7d"
+    },
+    {
+      "filename": "langgraph.svg",
+      "sourcePage": "https://www.langchain.com/brand-assets",
+      "sourceURL": "https://cdn.prod.website-files.com/65b8cd72835ceeacd4449a53/6a994264a64b3afcdd880f6b_LangGraph_OSS%20Lockup_light%201.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository; third-party CDN URL found in official page source where applicable",
+      "bytes": 5313,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 189 40",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/langgraph.svg",
+      "sha256": "b58edf515d14b545e2be74cfeca47c215b565719c74261a63029435576dfd272"
+    },
+    {
+      "filename": "mcp.png",
+      "sourcePage": "https://modelcontextprotocol.io/",
+      "sourceURL": "https://modelcontextprotocol.io/mintlify-assets/_mintlify/favicons/mcp/ebiVJzri-bsiCfVZ/_generated/favicon/android-chrome-192x192.png",
+      "note": "Downloaded unchanged from official website or official GitHub repository; third-party CDN URL found in official page source where applicable",
+      "bytes": 3055,
+      "mime": "image/png",
+      "dimensions": [
+        192,
+        192
+      ],
+      "file": "dist/assets/tech/mcp.png",
+      "sha256": "6157492751a00108601a9227297fa4c2db97f6070484dd08166a0774ce84a057"
+    },
+    {
+      "filename": "fastapi.png",
+      "sourcePage": "https://fastapi.tiangolo.com/",
+      "sourceURL": "https://raw.githubusercontent.com/fastapi/fastapi/master/docs/en/docs/img/favicon.png",
+      "note": "Downloaded unchanged from official website or official repository.",
+      "bytes": 5043,
+      "mime": "image/png",
+      "dimensions": [
+        144,
+        144
+      ],
+      "file": "dist/assets/tech/fastapi.png",
+      "sha256": "d16f72cf5a2773eba499cc7f3db1923c6f5f73de990f739e3a05806aafec15b7"
+    },
+    {
+      "filename": "nodejs.svg",
+      "sourcePage": "https://nodejs.org/en/about/branding",
+      "sourceURL": "https://nodejs.org/static/logos/nodejsStackedDark.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 6338,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 205.86 126",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/nodejs.svg",
+      "sha256": "7229531b0abe022a219b745d03d89d1c965ce327c7ad86780389dad4e39945d2"
+    },
+    {
+      "filename": "sqlite.gif",
+      "sourcePage": "https://www.sqlite.org/",
+      "sourceURL": "https://www.sqlite.org/images/sqlite370_banner.gif",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 5452,
+      "mime": "image/gif",
+      "dimensions": [
+        220,
+        101
+      ],
+      "file": "dist/assets/tech/sqlite.gif",
+      "sha256": "d5c96da061e5864bdc4dbb601a8ddded2225d53e03b6f4e1512b121a4045db59"
+    },
+    {
+      "filename": "threejs.svg",
+      "sourcePage": "https://threejs.org/",
+      "sourceURL": "https://threejs.org/files/icon.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository; third-party CDN URL found in official page source where applicable",
+      "bytes": 677,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 226.77 226.77",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/threejs.svg",
+      "sha256": "fe160e715ebdbed862f4a3f3633320cd5081b8de4e95818d429b3d295a71a9e8"
+    },
+    {
+      "filename": "flask.svg",
+      "sourcePage": "https://flask.palletsprojects.com/",
+      "sourceURL": "https://raw.githubusercontent.com/pallets/flask/main/docs/_static/flask-icon.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository; third-party CDN URL found in official page source where applicable",
+      "bytes": 1999,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 500 500",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/flask.svg",
+      "sha256": "15a96b930d2669772c903e80a0270fcc859148816b53e18d203cb743d4c586f6"
+    },
+    {
+      "filename": "echarts-icon.png",
+      "sourcePage": "https://echarts.apache.org/",
+      "sourceURL": "https://echarts.apache.org/en/images/favicon.png",
+      "note": "Downloaded unchanged from official page or official repository.",
+      "bytes": 1534,
+      "mime": "image/png",
+      "dimensions": [
+        147,
+        147
+      ],
+      "file": "dist/assets/tech/echarts-icon.png",
+      "sha256": "3a6f31de9387417ffb3e59be02426a5a7651b1862f400b55bb4040a77ed50f93"
+    },
+    {
+      "filename": "git.svg",
+      "sourcePage": "https://git-scm.com/downloads/logos",
+      "sourceURL": "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.svg",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 858,
+      "mime": "image/svg+xml",
+      "viewBox": "0 0 78 78",
+      "standaloneCheck": {
+        "validXML": true,
+        "unresolvedReferences": [],
+        "externalReferences": [],
+        "styleBlocks": 0
+      },
+      "file": "dist/assets/tech/git.svg",
+      "sha256": "1080a5430edb6278dc03e4b04efc16c8bed5b943408d648ad721a28836814220"
+    },
+    {
+      "filename": "github.png",
+      "sourcePage": "https://github.com/logos",
+      "sourceURL": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+      "note": "Downloaded unchanged from official website or official GitHub repository",
+      "bytes": 7249,
+      "mime": "image/png",
+      "dimensions": [
+        560,
+        560
+      ],
+      "file": "dist/assets/tech/github.png",
+      "sha256": "6d6ef7bede0416b6ebee2014be5852576dbce89235fe16ea5c44ed01bd522132"
+    }
+  ]
+}

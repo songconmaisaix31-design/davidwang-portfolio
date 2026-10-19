@@ -1,0 +1,29 @@
+David Wang · 个人作品与实践
+
+这是当前已发布网页的完整文件导出，包含 HTML、CSS、JavaScript、Logo、截图及素材来源记录。
+导出日期：2026-10-19
+源码版本：381f4a6eecdc89cbfac551c57e4c3f761cad3d36
+已发布网页：https://ai-action-fieldnotes.dapper-star-4521.chatgpt.site
+
+本地预览
+1. 解压 ZIP，在 David-Wang-Portfolio 文件夹打开终端。
+2. 确保已安装 Python 3，执行：
+   python3 -m http.server 8000 --directory dist
+   Windows 也可执行：py -m http.server 8000 --directory dist
+3. 在浏览器打开 http://localhost:8000
+4. 在终端按 Ctrl+C 停止预览。
+
+网页使用 JavaScript 模块，请通过上述本地服务器预览，直接双击 index.html 可能无法完整运行。
+
+编辑与部署
+- dist/index.html：页面结构。
+- dist/content.js：项目介绍、荣誉与认证。
+- dist/tech-data.js：技术与 AI 工具清单。
+- dist/*.css 与 dist/*.js：样式、手写动效、Logo 行星带及交互。
+- dist/assets/：页面素材。
+- README.md 与 *-provenance.json：实现与素材来源说明。
+- 无需构建，将 dist 文件夹内容上传到静态网站托管服务即可。
+- GitHub 实时同步与外部项目链接需要联网。
+
+版本说明
+导出保留当前发布状态。CrewTrace 展示图为标注了版本的仓库迭代截图，最新三面板实拍尚未补齐。

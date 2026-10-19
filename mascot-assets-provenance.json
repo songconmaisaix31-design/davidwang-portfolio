@@ -1,0 +1,115 @@
+{
+  "retrievedAt": "2026-10-19",
+  "assets": [
+    {
+      "id": "linux",
+      "file": "linux-tux.svg",
+      "officialSource": "https://raw.githubusercontent.com/torvalds/linux/master/Documentation/images/logo.svg",
+      "reference": "https://github.com/torvalds/linux/blob/master/Documentation/images/logo.svg",
+      "transparent": true,
+      "note": "Linux kernel repository Tux, original SVG unchanged. Original artwork Larry Ewing, vector by Garrett LeSage.",
+      "sha256": "a31038faddfc457ada7948ab18c5cd8bad68863f5520144d5cbed5acb84f7b33"
+    },
+    {
+      "id": "go",
+      "file": "go-gopher.svg",
+      "officialSource": "https://go.dev/images/gophers/front.svg",
+      "reference": "https://go.dev/wiki/Gopher",
+      "transparent": true,
+      "note": "Official Go front-facing Gopher. Artwork Renee French, CC BY 4.0; retain attribution in sources.",
+      "sha256": "a0167249b1279be3be70927b184ad49e09ad29cb812838d774883afffbbf5bfc"
+    },
+    {
+      "id": "github",
+      "file": "github-octocat.png",
+      "officialSource": "https://octodex.github.com/images/original.png",
+      "reference": "https://octodex.github.com/original/",
+      "transparent": true,
+      "note": "Original GitHub Octocat; use as mascot/link to personal GitHub, no white card.",
+      "sha256": "9a09d0672ee13d3ed034bc56ceda3a226cf0e888904a6c5bf489bb89f28cba69"
+    },
+    {
+      "id": "clawd",
+      "file": "clawd-symbol.svg",
+      "rawFile": "clawd.png",
+      "officialSource": "https://claude.ai/images/clawd/core/Clawd-Still.png",
+      "reference": "https://claude.ai/code",
+      "transparent": true,
+      "note": "Official Clawd PNG embedded unchanged into SVG viewport to eliminate transparent margins. PNG original 2750x1850, alpha bounds 736,1050 to 1936,1850. Pixelated orange crab. Optional official waving gif also downloaded.",
+      "sha256": "a88c58cc25c73c955c57e2f3b33df561cf2a7375daf7cad6b175e1c65a01bb39"
+    },
+    {
+      "id": "minimax",
+      "file": "minimax-mascot.png",
+      "officialSource": "https://cdn.hailuo.ai/mavis-chat/prod-web-va-0.1.213/_next/static/media/agentLogo.03076773.png",
+      "reference": "https://agent.minimax.io/",
+      "transparent": true,
+      "note": "Official MiniMax Agent asset discovered in shipped page JS module 73334, named agentLogo. 128px transparent blue mascot; same silhouette is visible on official brand-vi Illustration System board. Prefer this mascot over favicon because favicon has white circular background.",
+      "sha256": "b1982453bbd7ced21bff3d36a843eedc8fb4730352cfa5ca3b77af9e7d8d49db"
+    },
+    {
+      "id": "kimi",
+      "name": "Kimi",
+      "file": "kimi-symbol.svg",
+      "official_page": "https://www.kimi.com/resources/kimi-brand",
+      "source": "Inline SVG of Kimi product symbol in the official navigation, SVG index 2",
+      "transparent": true,
+      "notes": "Exact official K-and-dot path. No background rectangle. Official downloadable ZIP retained as verification.",
+      "bytes": 706,
+      "sha256": "de945ca946c8efa8bf5e1d3313877a5459ee9b0f9aad85d405fbd71c00eea4fa"
+    },
+    {
+      "id": "glm",
+      "name": "GLM / Z.ai",
+      "file": "glm-symbol.svg",
+      "official_page": "https://z.ai",
+      "asset_url": "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+      "transparent": true,
+      "notes": "Exact inner Z glyph paths/polygon extracted from official app icon, app background omitted, monochrome ink #111111.",
+      "bytes": 389,
+      "sha256": "553b1e255da3d2f5d850b79572194891eb51b567994a31798cc00cd003f75e00"
+    },
+    {
+      "id": "grok-bot",
+      "name": "Grok Bot",
+      "file": "grok-bot-symbol.svg",
+      "official_page": "https://x.ai/bot",
+      "source": "Official landing-page grok-bot-mark inline SVG, index 14",
+      "transparent": true,
+      "notes": "Exact static head and eyes from official page; external CSS var fills inlined black/white. Symbol circular head is intrinsic mascot geometry, not a UI card.",
+      "bytes": 2639,
+      "sha256": "189e7a853369b6e6e65da9ce2312e9c4fee1a695ba1b8d791b7d87ea81be268d"
+    },
+    {
+      "id": "muse",
+      "name": "Muse (Meta)",
+      "file": "muse-symbol.svg",
+      "official_page": "https://introducing.muse.ai/",
+      "asset_url": "https://introducing.muse.ai/landing/MuseLogo.svg",
+      "transparent": true,
+      "notes": "Official original SVG downloaded unchanged. Blue handwritten M mark. Confirmed Meta personal AI agent.",
+      "bytes": 2628,
+      "sha256": "73bdf6aed3c3a03b2181c69532672554fca8a1d303644c301abb1caf5300d703"
+    },
+    {
+      "id": "seedance",
+      "name": "Seedance · ByteDance Seed",
+      "file": "seedance-bytedance.png",
+      "official_page": "https://seed.bytedance.com/en/seedance2_0",
+      "asset_url": "https://lf3-static.bytednsdoc.com/obj/eden-cn/lapzild-tss/ljhwZthlaukjlkulzlp/favicon_1/favicon.ico",
+      "transparent": true,
+      "notes": "Official Seedance model page favicon is the ByteDance publisher mark. Original 48×48 RGBA pixels extracted from official ICO without resizing, recoloring, background removal, or drawing. Use with explicit publisher-mark explanation in details; no dedicated Seedance symbol verified.",
+      "bytes": 774,
+      "sha256": "bb5fe321bf2c5396a7b8dc3c53bb3bd4c170ab51ed33f8a08fe881c3fceb9000"
+    },
+    {
+      "id": "codex",
+      "file": "codex-classic.svg",
+      "source": "https://unpkg.com/@lobehub/icons-static-svg@1.90.0/icons/codex.svg",
+      "reference": "https://openai.com/codex/",
+      "transparent": true,
+      "note": "Classic Codex cloud/terminal mark as maintained by LobeHub Icons. Community-distributed SVG, not an OpenAI-hosted asset; retained unchanged. MIT license included in dist/assets/tech/CODEX_ICON_LICENSE.txt. User specifically requested the old logo instead of Codey.",
+      "sha256": "d08b4e824cd6727e89617f59e4737273ff53e44c1da849d016dd64dfd08b33e1"
+    }
+  ]
+}

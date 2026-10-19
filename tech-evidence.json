@@ -1,0 +1,195 @@
+{
+  "checkedAt": "2026-10-19",
+  "items": [
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "group": "code",
+      "usage": "Astrocyte、CrewTrace 和氢哨的前端使用 TypeScript；类型检查参与构建与验证。",
+      "evidence": "https://github.com/songconmaisaix31-design/Astrocyte/blob/57a91f4601b4292df4f55ba6cac541bad5caab3f/web/package.json"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "group": "code",
+      "usage": "Morphogenesis 使用 Python 实现蜂群运行与研究任务；RealTag 的服务端也使用 Python。",
+      "evidence": "https://github.com/songconmaisaix31-design/Morphogenesis/blob/codex/morphogenesis-mainline/pyproject.toml"
+    },
+    {
+      "id": "go",
+      "name": "Go",
+      "group": "code",
+      "usage": "Astrocyte 使用 Go 实现服务端、MCP 接入及 SQLite 持久化。",
+      "evidence": "https://github.com/songconmaisaix31-design/Astrocyte/blob/57a91f4601b4292df4f55ba6cac541bad5caab3f/go.mod"
+    },
+    {
+      "id": "react",
+      "name": "React",
+      "group": "code",
+      "usage": "Astrocyte、CrewTrace 与氢哨使用 React 构建交互界面。",
+      "evidence": "https://github.com/songconmaisaix31-design/Astrocyte/blob/57a91f4601b4292df4f55ba6cac541bad5caab3f/web/package.json"
+    },
+    {
+      "id": "vite",
+      "name": "Vite",
+      "group": "code",
+      "usage": "Astrocyte、CrewTrace 和氢哨使用 Vite 进行本地开发与前端构建。",
+      "evidence": "https://github.com/songconmaisaix31-design/OpenDashboard-H2/blob/main/package.json"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "group": "engineering",
+      "usage": "Morphogenesis 的项目依赖包含 Docker SDK，用于容器与沙箱相关工作。",
+      "evidence": "https://github.com/songconmaisaix31-design/Morphogenesis/blob/codex/morphogenesis-mainline/pyproject.toml"
+    },
+    {
+      "id": "cursor",
+      "name": "Cursor",
+      "group": "ai",
+      "usage": "在日常开发中使用 Cursor 阅读项目、编写代码和推进功能。",
+      "evidence": null
+    },
+    {
+      "id": "codex",
+      "name": "Codex · ChatGPT",
+      "group": "ai",
+      "usage": "使用 Codex 编写与检查代码，用 ChatGPT 推敲研究、产品与项目文档。此处使用 OpenAI 官方品牌标识。",
+      "evidence": null
+    },
+    {
+      "id": "claude",
+      "name": "Claude Code",
+      "group": "ai",
+      "usage": "使用 Claude Code 与 Claude 协助代码开发、项目分析和文档工作。",
+      "evidence": null
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "group": "ai",
+      "usage": "在日常学习、方案推敲和 AI 应用探索中使用 DeepSeek。",
+      "evidence": null
+    },
+    {
+      "id": "qwen",
+      "name": "Qwen",
+      "group": "ai",
+      "usage": "使用通义千问参与日常学习、代码与方案分析。",
+      "evidence": null
+    },
+    {
+      "id": "solidity",
+      "name": "Solidity",
+      "group": "code",
+      "usage": "CrewTrace 使用 Solidity 编写 AgentLedger 与 CollaborationLedger 合约。",
+      "evidence": "https://github.com/songconmaisaix31-design/co-vibe/blob/a6bb49857b87cac9fd380c7ff44c895a0e67d741/contracts/src/AgentLedger.sol"
+    },
+    {
+      "id": "langgraph",
+      "name": "LangGraph",
+      "group": "engineering",
+      "usage": "Morphogenesis 的 Python 依赖包括 LangGraph 与 SQLite checkpoint 组件。",
+      "evidence": "https://github.com/songconmaisaix31-design/Morphogenesis/blob/codex/morphogenesis-mainline/pyproject.toml"
+    },
+    {
+      "id": "mcp",
+      "name": "MCP",
+      "group": "engineering",
+      "usage": "Astrocyte 使用 MCP Go SDK；Morphogenesis 和 McPet 也包含 MCP 相关实现。",
+      "evidence": "https://github.com/songconmaisaix31-design/Astrocyte/blob/57a91f4601b4292df4f55ba6cac541bad5caab3f/go.mod"
+    },
+    {
+      "id": "fastapi",
+      "name": "FastAPI",
+      "group": "engineering",
+      "usage": "Morphogenesis 使用 FastAPI 提供观测台与相关服务接口。",
+      "evidence": "https://github.com/songconmaisaix31-design/Morphogenesis/blob/codex/morphogenesis-mainline/pyproject.toml"
+    },
+    {
+      "id": "nvidia",
+      "name": "NVIDIA",
+      "group": "learning",
+      "usage": "围绕模型推理、部署、RAG 与 Agent 持续学习，并把课程内容带回项目实践。",
+      "evidence": null
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "group": "engineering",
+      "usage": "氢哨、Astrocyte 和 CrewTrace 使用 Node.js 执行开发、构建与测试脚本。",
+      "evidence": "https://github.com/songconmaisaix31-design/OpenDashboard-H2/blob/main/package.json"
+    },
+    {
+      "id": "sqlite",
+      "name": "SQLite",
+      "group": "engineering",
+      "usage": "Astrocyte 使用 modernc.org/sqlite；Morphogenesis 也使用 SQLite 保存运行状态。",
+      "evidence": "https://github.com/songconmaisaix31-design/Astrocyte/blob/57a91f4601b4292df4f55ba6cac541bad5caab3f/go.mod"
+    },
+    {
+      "id": "threejs",
+      "name": "Three.js",
+      "group": "code",
+      "usage": "CrewTrace 的前端依赖包括 Three.js，用于三维视觉界面。",
+      "evidence": "https://github.com/songconmaisaix31-design/co-vibe/blob/a6bb49857b87cac9fd380c7ff44c895a0e67d741/apps/web/package.json"
+    },
+    {
+      "id": "flask",
+      "name": "Flask",
+      "group": "engineering",
+      "usage": "RealTag 使用 Flask 构建服务端。",
+      "evidence": "https://github.com/songconmaisaix31-design/tongpin-real-tags/blob/main/requirements.txt"
+    },
+    {
+      "id": "echarts",
+      "name": "Apache ECharts",
+      "group": "code",
+      "usage": "氢哨使用 Apache ECharts 展示数据。",
+      "evidence": "https://github.com/songconmaisaix31-design/OpenDashboard-H2/blob/main/package.json"
+    },
+    {
+      "id": "git",
+      "name": "Git",
+      "group": "engineering",
+      "usage": "通过 Git 保存项目变更，使用分支组织不同功能和实验。",
+      "evidence": "https://github.com/songconmaisaix31-design"
+    },
+    {
+      "id": "github",
+      "name": "GitHub",
+      "group": "engineering",
+      "usage": "在 GitHub 维护项目源码、文档、分支与协作记录。",
+      "evidence": "https://github.com/songconmaisaix31-design"
+    },
+    {
+      "id": "opencode",
+      "name": "OpenCode",
+      "group": "ai",
+      "usage": "我的日常 AI 工具之一。",
+      "evidence": null
+    },
+    {
+      "id": "ds-harness",
+      "name": "DeepSeek Harness",
+      "group": "ai",
+      "usage": "我的日常 AI 工具之一。",
+      "evidence": null
+    },
+    {
+      "id": "qoder",
+      "name": "Qoder",
+      "group": "ai",
+      "usage": "我的日常 AI 工具之一。",
+      "evidence": null
+    },
+    {
+      "id": "workbuddy",
+      "name": "WorkBuddy",
+      "group": "ai",
+      "usage": "我的日常 AI 工具之一。",
+      "evidence": null
+    }
+  ],
+  "selectionNote": "AI tools are based on user-described daily usage. NVIDIA is categorized as learning. Repository items are grounded in manifests and code; no proficiency claim is inferred."
+}
