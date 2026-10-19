@@ -78,7 +78,7 @@ Logo 动效支持暂停、重播引导后重新入场、减少动态效果、离
 
 ## 验证与发布
 
-无构建静态网站，部署目录 `dist`；身份与配置沿用 `.openai/hosting.json`。通过 Sites 源码同步与原私有站点发布流程更新，保留既有访问范围。
+无打包静态网站，部署目录 `dist`。GitHub 仓库保存网站源码，Vercel Git 集成负责预览与正式部署；`npm run build` 检查入口与本地资源引用。
 
 执行 JavaScript 语法、HTML/资源引用、SVG 可解析性、项目和奖项关系检查，并进行代码复审。保留移动菜单跨断点、Escape 焦点恢复与滚动显现处理。
 
@@ -102,13 +102,14 @@ Logo 动效支持暂停、重播引导后重新入场、减少动态效果、离
 - Vercel 项目：`davidwang-portfolio`（团队 `dwwww`），部署目录 `dist`
 - 线上主域名：<https://davidwang.space>，`www.davidwang.space` 308 跳转到主域名
 
-`vercel.json` 指定 `outputDirectory: dist`，网站无构建步骤。改动 `dist` 后直接部署：
+`vercel.json` 指定 `outputDirectory: dist`，Vercel 执行 `npm run build` 校验静态产物。GitHub 账号 `songconmaisaix31-design` 已连接 Vercel，Vercel GitHub App 的仓库授权范围为 `davidwang-portfolio`。
 
-```powershell
-vercel deploy --prod --yes
-```
+- 推送功能分支或提交 Pull Request，Vercel 自动创建预览部署。
+- 合入 `main` 后，Vercel 自动部署到 <https://davidwang.space>。
+- 本地运行 `npm run build` 校验资源，运行 `npm run dev` 启动预览。
+- `.vercel/` 与 `.env*` 由 Git 忽略。
 
-Vercel 项目的 Git 集成尚未连接 GitHub 账号（团队 `dwwww` 没有登录关联），所以当前是 CLI 推送部署，push 到 GitHub 不会自动触发。需要在 Vercel 项目 Settings → Git 里连一次 GitHub，之后即可自动化。
+精简的 GitHub Profile 位于 <https://github.com/songconmaisaix31-design>，简介、网站字段和 Profile README 均提供个人网站入口。网站的关于与联系区域链接回 GitHub；页面中的「同步 GitHub」读取公开项目的最新推送时间。
 
 域名 DNS 托管在阿里云（HiChina），不使用 Vercel 托管 DNS，因此阿里云 DNS 里维护三条记录（TTL 600）：
 
