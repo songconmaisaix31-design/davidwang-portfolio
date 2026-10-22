@@ -115,7 +115,7 @@ function mountGlass(canvas) {
   const section=host?.closest('section');
   const control=section?.querySelector('[data-glass-toggle]');
   if(!host||!section) return;
-  const gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:true,powerPreference:'low-power'});
+  const gl=canvas.getContext('webgl',{alpha:true,antialias:true,premultipliedAlpha:true,powerPreference:'high-performance'});
   if(!gl) return;
   let program,vertex,index,mesh;
   try {
@@ -140,40 +140,48 @@ function mountGlass(canvas) {
   const attribute=gl.getAttribLocation(program,'aParam');
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   const fine=matchMedia('(pointer: fine)');
-  let inView=false,manualPause=false,lost=false,frame=0,last=0,elapsed=0,width=0,height=0;
+  let inView=false,manualPause=false,lost=false,frame=0,last=null,elapsed=0,width=0,height=0;
   let targetX=0,targetY=0,pointerX=0,pointerY=0;
-  function paused() { return manualPause||reduced.matches||document.hidden||!inView||lost; }
+  let pendingPointer=null,dialogOpen=Boolean(document.querySelector('#detail-dialog')?.open);
+  let welcome=document.documentElement.classList.contains('welcome-active');
+  let dark=document.body.dataset.theme==='dark'?1:0;
+  // This canvas owns its context; buffer bindings and fixed state persist between frames.
+  gl.useProgram(program);
+  gl.bindBuffer(gl.ARRAY_BUFFER,vertex);gl.enableVertexAttribArray(attribute);
+  gl.vertexAttribPointer(attribute,2,gl.FLOAT,false,0,0);
+  gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,index);
+  gl.uniform2f(loc.uScale,.84,1.54);
+  gl.disable(gl.CULL_FACE);gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);
+  gl.clearColor(0,0,0,0);gl.clearDepth(1);
+  gl.blendFuncSeparate(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
+  function paused() { return manualPause||reduced.matches||document.hidden||!inView||lost||dialogOpen||welcome; }
   function draw() {
     if(lost||!width||!height) return;
-    gl.viewport(0,0,width,height);
-    gl.clearColor(0,0,0,0); gl.clearDepth(1);
     gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
-    gl.useProgram(program);
-    gl.bindBuffer(gl.ARRAY_BUFFER,vertex); gl.enableVertexAttribArray(attribute);
-    gl.vertexAttribPointer(attribute,2,gl.FLOAT,false,0,0);
-    gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,index);
     gl.uniform1f(loc.uTime,elapsed);
-    gl.uniform1f(loc.uDark,document.body.dataset.theme==='dark'?1:0);
-    gl.uniform2f(loc.uScale,.84,1.54);
+    gl.uniform1f(loc.uDark,dark);
     gl.uniform2f(loc.uPointer,pointerX,pointerY);
-    gl.disable(gl.CULL_FACE); gl.enable(gl.DEPTH_TEST); gl.depthFunc(gl.LEQUAL);
     // Resolve the nearest glass surface first so the infinity crossing stays clean.
     gl.disable(gl.BLEND); gl.colorMask(false,false,false,false); gl.depthMask(true);
     gl.drawElements(gl.TRIANGLES,mesh.indices.length,gl.UNSIGNED_SHORT,0);
     gl.colorMask(true,true,true,true); gl.depthMask(false); gl.enable(gl.BLEND);
-    gl.blendFuncSeparate(gl.SRC_ALPHA,gl.ONE_MINUS_SRC_ALPHA,gl.ONE,gl.ONE_MINUS_SRC_ALPHA);
     gl.drawElements(gl.TRIANGLES,mesh.indices.length,gl.UNSIGNED_SHORT,0);
     gl.depthMask(true);
   }
   function tick(now) {
     frame=0;
-    if(paused()) {last=0;return;}
-    if(!last||now-last>=1000/30) {
-      elapsed+=last?Math.min((now-last)/1000,.1):0;
-      last=now;
-      pointerX+=(targetX-pointerX)*.045;pointerY+=(targetY-pointerY)*.045;
-      draw();
+    if(paused()) {last=null;return;}
+    const dt=last===null?0:Math.min((now-last)/1000,.1);
+    elapsed+=dt;last=now;
+    if(pendingPointer) {
+      const rect=host.getBoundingClientRect();
+      targetX=Math.max(-1,Math.min(1,(pendingPointer.x-rect.left)/rect.width*2-1));
+      targetY=Math.max(-1,Math.min(1,(pendingPointer.y-rect.top)/rect.height*2-1));
+      pendingPointer=null;
     }
+    const blend=1-Math.pow(1-.045,dt*30);
+    pointerX+=(targetX-pointerX)*blend;pointerY+=(targetY-pointerY)*blend;
+    draw();
     frame=requestAnimationFrame(tick);
   }
   function updateMotion() {
@@ -186,35 +194,40 @@ function mountGlass(canvas) {
       control.innerHTML=manualPause?PLAY_ICON:PAUSE_ICON;
     }
     if(paused()) {
-      if(frame)cancelAnimationFrame(frame);frame=0;last=0;
+      if(frame)cancelAnimationFrame(frame);frame=0;last=null;pendingPointer=null;
       targetX=targetY=pointerX=pointerY=0;
-      draw();
+      if(inView&&!document.hidden&&!dialogOpen&&!welcome) draw();
     } else if(!frame) frame=requestAnimationFrame(tick);
   }
   function resize() {
     const rect=host.getBoundingClientRect();
     const dpr=Math.min(devicePixelRatio||1,1.6);
     width=Math.max(1,Math.round(rect.width*dpr));height=Math.max(1,Math.round(rect.height*dpr));
-    if(canvas.width!==width||canvas.height!==height) {canvas.width=width;canvas.height=height;}
+    if(canvas.width!==width||canvas.height!==height) {
+      canvas.width=width;canvas.height=height;gl.viewport(0,0,width,height);
+    }
     draw();
   }
   new ResizeObserver(resize).observe(host);
   if('IntersectionObserver' in window) new IntersectionObserver(entries=>{
     inView=entries[0].isIntersecting;updateMotion();
-  },{rootMargin:'80px',threshold:0}).observe(host);
+  },{threshold:0}).observe(host);
   else inView=true;
-  new MutationObserver(()=>draw()).observe(document.body,{attributes:true,attributeFilter:['data-theme']});
+  new MutationObserver(()=>{
+    dark=document.body.dataset.theme==='dark'?1:0;
+    if(inView&&!document.hidden&&!dialogOpen&&!welcome) draw();
+  }).observe(document.body,{attributes:true,attributeFilter:['data-theme']});
   document.addEventListener('visibilitychange',updateMotion);
+  document.addEventListener('portfolio:dialog',event=>{dialogOpen=event.detail.open;updateMotion();});
+  document.addEventListener('welcome:state',event=>{welcome=event.detail.open;updateMotion();});
   reduced.addEventListener('change',updateMotion);
-  fine.addEventListener('change',()=>{targetX=targetY=0;});
+  fine.addEventListener('change',()=>{pendingPointer=null;targetX=targetY=0;});
   control?.addEventListener('click',()=>{manualPause=!manualPause;updateMotion();});
   section.addEventListener('pointermove',event=>{
     if(paused()||!fine.matches)return;
-    const rect=host.getBoundingClientRect();
-    targetX=Math.max(-1,Math.min(1,(event.clientX-rect.left)/rect.width*2-1));
-    targetY=Math.max(-1,Math.min(1,(event.clientY-rect.top)/rect.height*2-1));
+    pendingPointer={x:event.clientX,y:event.clientY};
   },{passive:true});
-  section.addEventListener('pointerleave',()=>{targetX=targetY=0;});
+  section.addEventListener('pointerleave',()=>{pendingPointer=null;targetX=targetY=0;});
   canvas.addEventListener('webglcontextlost',event=>{
     event.preventDefault();lost=true;host.classList.remove('glass-ready');updateMotion();
   });
@@ -224,7 +237,16 @@ function mountGlass(canvas) {
 }
 
 export function initGlassSculptures() {
-  document.querySelectorAll('[data-glass-scene] canvas').forEach(canvas=>{
+  const mount=canvas=>{
     try {mountGlass(canvas);} catch {canvas.closest('[data-glass-scene]')?.classList.remove('glass-ready');}
-  });
+  };
+  const canvases=document.querySelectorAll('[data-glass-scene] canvas');
+  if(!('IntersectionObserver' in window)) {canvases.forEach(mount);return;}
+  // Compile WebGL only when the sculpture approaches the viewport.
+  const observer=new IntersectionObserver(entries=>{
+    for(const entry of entries) if(entry.isIntersecting) {
+      observer.unobserve(entry.target);mount(entry.target);
+    }
+  },{rootMargin:'200px',threshold:0});
+  canvases.forEach(canvas=>observer.observe(canvas));
 }

@@ -5,6 +5,7 @@
   "type": "module",
   "description": "David Wang · 个人作品与实践，无构建静态站点，部署目录 dist",
   "scripts": {
+    "test": "node --test tests/*.test.mjs",
     "build": "node scripts/build.mjs",
     "dev": "node scripts/serve.mjs",
     "preview": "node scripts/serve.mjs"

@@ -84,6 +84,7 @@ function openDialog(html, trigger) {
     previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     dialog.showModal();
+    document.dispatchEvent(new CustomEvent('portfolio:dialog',{detail:{open:true}}));
   }
   $('.dialog-close').focus({ preventScroll:true });
 }
@@ -136,6 +137,7 @@ function openTech(id,trigger) {
 
 dialog.addEventListener('close', () => {
   document.body.style.overflow = previousOverflow;
+  document.dispatchEvent(new CustomEvent('portfolio:dialog',{detail:{open:false}}));
   if (lastTrigger?.isConnected) lastTrigger.focus({ preventScroll:true });
   else if (lastTrigger?.dataset?.project) $(`[data-project="${lastTrigger.dataset.project}"]`)?.focus({ preventScroll:true });
 });
@@ -275,15 +277,24 @@ $('#copy-site').addEventListener('click', async event => {
   catch { openDialog(`<h2 id="dialog-title">主页链接</h2><p class="dialog-subtitle">选择下方链接即可复制。</p><input class="copy-field" aria-label="主页链接" value="${escapeHTML(url)}" readonly />`, event.currentTarget); $('.copy-field').select(); }
 });
 let scrollQueued = false;
+const navSections=['projects','milestones','principles','about'].map(id=>$(`#${id}`));
+const navLinks=$$('.desktop-nav a');
+const header=$('.site-header');
+let activeSection=null,headerScrolled=null;
 function updateNavigation() {
-  $('.site-header').classList.toggle('scrolled', window.scrollY > 30);
+  const scrolled=window.scrollY>30;
   let active = '';
-  for (const id of ['projects','milestones','principles','about']) if ($(`#${id}`).getBoundingClientRect().top < 220) active = id;
-  $$('.desktop-nav a').forEach(link => {
-    const on = link.hash === `#${active}`;
-    link.classList.toggle('active', on);
-    if (on) link.setAttribute('aria-current','location'); else link.removeAttribute('aria-current');
-  });
+  // Read geometry before writing styles; mutate navigation only at boundaries.
+  for (const section of navSections) if (section.getBoundingClientRect().top < 220) active = section.id;
+  if(headerScrolled!==scrolled) {header.classList.toggle('scrolled',scrolled);headerScrolled=scrolled;}
+  if(activeSection!==active) {
+    navLinks.forEach(link => {
+      const on = link.hash === `#${active}`;
+      link.classList.toggle('active', on);
+      if (on) link.setAttribute('aria-current','location'); else link.removeAttribute('aria-current');
+    });
+    activeSection=active;
+  }
   scrollQueued = false;
 }
 window.addEventListener('scroll', () => {
@@ -291,9 +302,10 @@ window.addEventListener('scroll', () => {
 }, { passive:true });
 
 const cache = readCache();
-renderProjects();
-renderHonors();
-renderStory();
+// Reuse the HTML generated at build time instead of replacing it on startup.
+if(!$('#project-grid').childElementCount) renderProjects();
+if(!$('#honors-grid').childElementCount) renderHonors();
+if(!$('#values-list').childElementCount||!$('#about-copy').childElementCount) renderStory();
 initMotion();
 updateNavigation();
 initWelcome();

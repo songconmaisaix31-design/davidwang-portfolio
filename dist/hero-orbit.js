@@ -18,20 +18,27 @@ export function getHeroMotion(section) {
   const pause=section.querySelector('#pause-tech');
   const listeners=new Set();
   const state={time:0,age:0,pointerX:0,pointerY:0,paused:false,reduced:reduced.matches};
-  let manual=false,inView=true,hover=false,focus=false,frame=0,last=0,targetX=0,targetY=0;
+  let manual=false,inView=true,hover=false,focus=false,frame=0,last=null,targetX=0,targetY=0;
+  let pendingPointer=null,dialogOpen=Boolean(document.querySelector('#detail-dialog')?.open);
   let welcome=document.documentElement.classList.contains('welcome-active');
-  const isPaused=()=>manual||reduced.matches||document.hidden||!inView||hover||focus||welcome;
+  const isPaused=()=>manual||reduced.matches||document.hidden||!inView||hover||focus||welcome||dialogOpen;
   function emit() { for (const listener of listeners) listener(state); }
   function tick(now) {
     frame=0;
-    if (isPaused()) {last=0;return;}
-    if (!last || now-last>=1000/30) {
-      const dt=last?Math.min((now-last)/1000,.1):0;
-      last=now;state.time+=dt;state.age+=dt;
-      state.pointerX+=(targetX-state.pointerX)*.045;
-      state.pointerY+=(targetY-state.pointerY)*.045;
-      emit();
+    if (isPaused()) {last=null;return;}
+    const dt=last===null?0:Math.min((now-last)/1000,.1);
+    last=now;state.time+=dt;state.age+=dt;
+    if(pendingPointer) {
+      const rect=section.getBoundingClientRect();
+      targetX=Math.max(-1,Math.min(1,(pendingPointer.x-rect.left)/rect.width*2-1));
+      targetY=Math.max(-1,Math.min(1,(pendingPointer.y-rect.top)/rect.height*2-1));
+      pendingPointer=null;
     }
+    // Preserve the original damping at every display refresh rate.
+    const blend=1-Math.pow(1-.045,dt*30);
+    state.pointerX+=(targetX-state.pointerX)*blend;
+    state.pointerY+=(targetY-state.pointerY)*blend;
+    emit();
     frame=requestAnimationFrame(tick);
   }
   function update() {
@@ -43,7 +50,7 @@ export function getHeroMotion(section) {
       pause.setAttribute('aria-label',manual?'继续姓名与 Logo 动效':'暂停姓名与 Logo 动效');
       pause.setAttribute('aria-pressed',String(manual));
     }
-    if (state.paused) {cancelAnimationFrame(frame);frame=0;last=0;}
+    if (state.paused) {cancelAnimationFrame(frame);frame=0;last=null;pendingPointer=null;}
     else if (!frame) frame=requestAnimationFrame(tick);
     document.dispatchEvent(new CustomEvent('signature:pause',{detail:{paused:manual}}));
     emit();
@@ -55,17 +62,17 @@ export function getHeroMotion(section) {
     update();
   });
   reduced.addEventListener('change',update);
+  fine.addEventListener('change',()=>{pendingPointer=null;targetX=targetY=0;});
+  document.addEventListener('portfolio:dialog',event=>{dialogOpen=event.detail.open;update();});
   document.addEventListener('visibilitychange',update);
   if ('IntersectionObserver' in window) new IntersectionObserver(entries=>{
     inView=entries[0].isIntersecting;update();
   },{threshold:0}).observe(section);
   section.addEventListener('pointermove',e=>{
-    if (!fine.matches || manual || reduced.matches) return;
-    const rect=section.getBoundingClientRect();
-    targetX=Math.max(-1,Math.min(1,(e.clientX-rect.left)/rect.width*2-1));
-    targetY=Math.max(-1,Math.min(1,(e.clientY-rect.top)/rect.height*2-1));
+    if (!fine.matches || isPaused()) return;
+    pendingPointer={x:e.clientX,y:e.clientY};
   },{passive:true});
-  section.addEventListener('pointerleave',()=>{targetX=targetY=0;});
+  section.addEventListener('pointerleave',()=>{pendingPointer=null;targetX=targetY=0;});
   const field=section.querySelector('#tech-constellation');
   field?.addEventListener('pointerover',e=>{if(fine.matches&&e.target.closest('[data-tech]')){hover=true;update();}});
   field?.addEventListener('pointerout',e=>{if(!field.contains(e.relatedTarget)||!e.relatedTarget?.closest('[data-tech]')){hover=false;update();}});

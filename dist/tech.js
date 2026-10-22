@@ -11,6 +11,7 @@ export function initTechConstellation(openDetail) {
   const items=technologies.filter(t=>t.hero);
   field.innerHTML=items.map(t=>`<div class="tech-slot" data-tech-slot="${escapeHTML(t.id)}"><button type="button" class="tech-orb ${t.mono?'tech-mono':''} ${t.mascot?'tech-mascot':''}" data-tech="${escapeHTML(t.id)}" aria-label="了解 ${escapeHTML(t.name)} 的使用情况"><img src="./${escapeHTML(t.heroLogo||t.logo)}" alt="" width="48" height="48" decoding="async" /></button></div>`).join('');
   const slots=[...field.children];
+  const styles=new WeakMap(slots.map(slot=>[slot,{}]));
   const driver=getHeroMotion(hero);
   let width=0,height=0,clearX=0,clearY=0,copyX=0,copyY=0,visible=[];
   function layout() {
@@ -27,6 +28,7 @@ export function initTechConstellation(openDetail) {
   }
   function draw(state) {
     if (!width) return;
+    const activeElement=document.activeElement;
     visible.forEach((slot,i)=>{
       const lane=i%3;
       const u=i/visible.length*Math.PI*2+.24+state.time*(.040+lane*.004);
@@ -36,14 +38,20 @@ export function initTechConstellation(openDetail) {
       const x=p.x*width/2*spread,y=p.y*height/2*spread;
       // The belt passes behind the copy, with no visible orbit lines or backing cards.
       const clearance=Math.max(Math.abs(x-copyX)/clearX,Math.abs(y-copyY)/clearY);
-      const legibility=slot.contains(document.activeElement)?1:Math.max(0,Math.min(1,(clearance-.83)/.28));
+      const legibility=slot.contains(activeElement)?1:Math.max(0,Math.min(1,(clearance-.83)/.28));
       const depth=Math.max(.76,Math.min(1.16,1+p.z*.45));
       const rotation=7*Math.sin(u+state.time*.06)+p.z*12;
       const opacity=progress*(.72+Math.max(0,p.z)*.8)*legibility;
-      slot.style.transform=`translate(calc(-50% + ${x.toFixed(2)}px),calc(-50% + ${y.toFixed(2)}px)) scale(${(depth*(.5+.5*spread)).toFixed(3)}) rotate(${rotation.toFixed(2)}deg)`;
-      slot.style.opacity=opacity.toFixed(3);
-      slot.style.zIndex=String(10+Math.round(p.z*8));
-      slot.style.pointerEvents=opacity>.25?'auto':'none';
+      const next={
+        transform:`translate3d(calc(-50% + ${x.toFixed(2)}px),calc(-50% + ${y.toFixed(2)}px),0) scale(${(depth*(.5+.5*spread)).toFixed(3)}) rotate(${rotation.toFixed(2)}deg)`,
+        opacity:opacity.toFixed(3),
+        zIndex:String(10+Math.round(p.z*8)),
+        pointerEvents:opacity>.25?'auto':'none'
+      };
+      const previous=styles.get(slot);
+      for(const key of Object.keys(next)) if(previous[key]!==next[key]) {
+        slot.style[key]=next[key];previous[key]=next[key];
+      }
     });
   }
   field.addEventListener('click',e=>{

@@ -2,6 +2,7 @@
 export function initSignatureWriting() {
   const reduced=matchMedia('(prefers-reduced-motion: reduce)');
   let greeting=document.documentElement.classList.contains('welcome-active'),manual=false;
+  let dialogOpen=Boolean(document.querySelector('#detail-dialog')?.open);
   const marks=[...document.querySelectorAll('.signature')].map(svg=>({svg,paths:[...svg.querySelectorAll('path')],animations:[],visible:false,played:false}));
   function prepare(mark) {
     mark.animations.forEach(a=>a.cancel());mark.animations=[];mark.played=false;
@@ -36,7 +37,7 @@ export function initSignatureWriting() {
       write(mark);
       for(const animation of mark.animations) {
         if(animation.playState==='finished') continue;
-        if(document.hidden || greeting || manual || !mark.visible) animation.pause();
+        if(document.hidden || greeting || manual || dialogOpen || !mark.visible) animation.pause();
         else if(animation.playState==='paused') animation.play();
       }
     }
@@ -56,5 +57,6 @@ export function initSignatureWriting() {
   });
   document.addEventListener('signature:pause',event=>{manual=event.detail.paused;update();});
   document.addEventListener('visibilitychange',update);
+  document.addEventListener('portfolio:dialog',event=>{dialogOpen=event.detail.open;update();});
   reduced.addEventListener('change',()=>{marks.forEach(prepare);update();});
 }
