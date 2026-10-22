@@ -23,15 +23,15 @@ Agent 开始彼此协作时，怎样知道对方做过什么？
 
 ## 实现范围与限制
 
-协作流程已有可运行原型，链上信誉与激励机制仍在探索。截图为仓库留存的 2026.10.19 设计迭代记录；最新主分支已采用任务、交流、公告三个面板，线上演示仍为较早版本。
+协作流程已有可运行原型，链上信誉与激励机制仍在探索。动态预览来自当前 main 主分支，包含任务、交流、公告三个面板；静态截图为仓库留存的 2026.10.19 设计迭代记录。
 
 ## 链接与来源
 
 - [本站项目资料](https://davidwang.space/projects/crewtrace.md)
 - [代码仓库](https://github.com/songconmaisaix31-design/CrewTrace)
 - [项目文档](https://github.com/songconmaisaix31-design/CrewTrace/blob/main/docs/three-workspace-panels.md)
-- [查看线上版本](https://mon.davidwang.space)
-- [CrewTrace 完整网站 · 实时动效与交互](https://mon.davidwang.space/)（个人主页内嵌原站；内容随原站更新）
+- [打开完整网站](https://davidwang.space/previews/crewtrace)
+- [CrewTrace 完整网站 · 实时动效与交互](https://davidwang.space/previews/crewtrace)（个人主页内嵌原站；内容随原站更新）
 - 记录分支：main
 - 资料对应提交：dcb9ae78b0836a6e067d1f2abaa919f8e243d23b
 - 已记录的仓库推送时间：2026-10-19T09:06:19Z

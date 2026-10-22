@@ -4,11 +4,13 @@
 
 ## CrewTrace 完整网站预览
 
-CrewTrace 卡片内嵌 `https://mon.davidwang.space/` 的真实首页动效，点击卡片后在详情中滚动浏览完整网站，并保留单独打开原站的链接。预览显示当前线上版本，原有仓库截图保留其版本与来源说明。
+CrewTrace 卡片内嵌 `/previews/crewtrace` 的完整前端，点击卡片后在详情中浏览首页动效及任务、交流、公告三个面板，也可以单独打开。来源为 `CrewTrace/main@dcb9ae78b0836a6e067d1f2abaa919f8e243d23b`，包含协作者 `yunheliu68-ux` 的最新前端提交 `1f9d62f4855c4edea523a766472515e1ba541ab2`。应用源码保持原样，仅在 Vite 构建时设置资源基础路径。原有仓库截图保留其版本与来源说明。
 
 `dist/project-preview.js` 只在预览可见时创建 iframe，离屏、页面隐藏、手动暂停、切换分类和关闭弹窗时移除 iframe；打开详情时移除卡片内的预览，避免同时运行两个网站。系统启用减少动态效果时先展示截图，访客可以主动播放。`dist/content.js` 的 `livePreview` 与 `livePreviewLabel` 同时生成到 Markdown 和 JSON 资料中。
 
-预览依赖 CrewTrace 原站的可用性和嵌入策略；截图及原站链接始终保留。iframe 禁止顶层导航和弹出窗口，使用原站自己的交互与数据；本次修改只提交到个人主页仓库。
+前端静态文件随个人主页发布；`/api/web` 通过 Vercel 转发到 `https://mon.davidwang.space/api/web`，读取真实公开协作数据。Agent 指引下载路径指向同一 main 构建中的原始文件。iframe 使用可信源码所需的脚本与同源权限；只在个人主页仓库发布预览，CrewTrace 原站部署保持独立。
+
+更新预览时先在 CrewTrace 的对应原始提交执行 `npm ci --ignore-scripts --no-audit --no-fund`，再从本仓库执行 `node scripts/sync-crewtrace-preview.mjs <CrewTrace checkout>`。脚本检查提交与源码状态，执行 TypeScript / Vite 构建，复制产物、Apache 许可及依赖许可；升级来源时同步脚本、内容和出处中的版本。`/previews/crewtrace/source.json` 公开构建来源。普通 `npm run build` 使用已提交的预览产物，不重复安装 React / Three.js。
 
 ## 高刷新率动画
 
@@ -82,7 +84,7 @@ Logo 动效支持暂停、重播引导后重新入场、减少动态效果、离
 
 | 项目 | 代码来源 | 展示素材 |
 | --- | --- | --- |
-| CrewTrace | CrewTrace / main · dcb9ae7 | 仓库归档的 2026.10.19 首页与任务截图（画面基线 3ef15dd）；最新源码已迭代为任务、交流、公告三面板。现有公开部署仍为较早版本 |
+| CrewTrace | CrewTrace / main · dcb9ae7 | main 原始前端完整动效与三面板交互；另保留 2026.10.19 归档截图（画面基线 3ef15dd） |
 | OpenDashboard · 氢哨 | OpenDashboard-H2 / main | 2026-10-19 从 204421.xyz/h2-sentinel/?mode=fixture 拍摄的实际前端，使用示例数据 |
 | RealTag · 真实标签 | tongpin-real-tags / main | 仓库内实际运行 QA 首页截图 |
 | Astrocyte | frontend-observatory-20261018 · 32672499 | 原 React 前端与 Go 后端运行实拍：资料沉淀、添加资料；独立空数据库实例 |
@@ -92,7 +94,7 @@ Logo 动效支持暂停、重播引导后重新入场、减少动态效果、离
 
 项目详情提供源码、文档、图片原始出处、可访问的演示入口、真实实现范围与贡献。截图、示例数据与品牌标识的性质按实际来源标注。CrewTrace、Astrocyte 和 Morphogenesis 的详情各有两张运行截图；主页卡片使用对应主图。`project-visuals-provenance.json` 保存各项目的图片来源、新截图的精确提交、尺寸、SHA256 与数据范围；`brand-assets-provenance.json` 保存品牌素材原始来源和校验信息。
 
-2026-10-19 CrewTrace 再次同步：仓库已从 `co-vibe` 更名为 `CrewTrace`，前端已合入 `main@dcb9ae78b0836a6e067d1f2abaa919f8e243d23b`。已同步源码入口、三面板说明、React / TypeScript / Three.js 技术和更新日期。两张替换图片直接来自该提交的 `design-audit/evidence`，未修改图像；审查 README 明确其实际画面基线为 `3ef15dd00b9451a42e2a5b34ef7d6d24a0877f76`，不能作为最新三面板界面的截图。页面已标注这一差异。Browser 核对 `mon.davidwang.space` 仍展示较早前端；本轮未部署 CrewTrace 应用，受管预览故障仍限制最新源码截图和作品站整页 QA。
+CrewTrace 已从 `co-vibe` 更名，前端合入 `main@dcb9ae78b0836a6e067d1f2abaa919f8e243d23b`。完整动态预览使用此提交的原始构建。两张静态图片来自该提交的 `design-audit/evidence`，未修改图像；审查 README 明确其画面基线为 `3ef15dd00b9451a42e2a5b34ef7d6d24a0877f76`，页面标注为设计迭代记录。
 
 ## 获奖与认证
 

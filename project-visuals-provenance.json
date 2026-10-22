@@ -2,10 +2,11 @@
   {
     "id": "crewtrace",
     "livePreview": {
-      "url": "https://mon.davidwang.space/",
-      "method": "Sandboxed iframe of the original deployed website, scaled in the project card and scrollable in the detail dialog. Loaded only while visible; removed when paused, hidden, filtered out or covered by another dialog.",
-      "versionScope": "Displays the deployed website, which may differ from repository main. Archived screenshots retain their original labels and source commits.",
-      "dataScope": "The preview loads the original site's public content; verification is anonymous and read-only. No business data is copied into this repository."
+      "url": "https://davidwang.space/previews/crewtrace",
+      "method": "Original CrewTrace main source built with the /previews/crewtrace/ asset base and embedded in an iframe. Loaded only while visible; removed when paused, hidden, filtered out or covered by another dialog.",
+      "versionScope": "Pinned main dcb9ae78b0836a6e067d1f2abaa919f8e243d23b, including frontend commit 1f9d62f4855c4edea523a766472515e1ba541ab2 by yunheliu68-ux. Application source is unmodified. Archived screenshots retain their original labels and source commits.",
+      "dataScope": "The /api/web route forwards to the existing mon.davidwang.space gateway. Verification is anonymous and read-only; no business data is copied into this repository.",
+      "sourceMetadata": "/previews/crewtrace/source.json"
     },
     "asset": "assets/crewtrace-hero-3ef15dd.png",
     "kind": "screenshot",
@@ -21,8 +22,7 @@
     "notes": [
       "Source links and frontend descriptions follow current main, including the three workspace panels.",
       "These archived screenshots predate the latest frontend changes; both the visible labels and project scope identify them as design iteration records.",
-      "The current live project URL was visually checked in Browser and still shows an earlier frontend.",
-      "The Sites managed preview infrastructure remains unavailable, so no fresh screenshots of main or complete portfolio browser QA were claimed."
+      "The interactive preview is built from main; the original project's production domain is used only as its API gateway."
     ],
     "evidence": "https://github.com/songconmaisaix31-design/CrewTrace/blob/dcb9ae78b0836a6e067d1f2abaa919f8e243d23b/design-audit/README.md",
     "images": [

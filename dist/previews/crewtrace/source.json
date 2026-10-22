@@ -1,0 +1,11 @@
+{
+  "repository": "https://github.com/songconmaisaix31-design/CrewTrace",
+  "branch": "main",
+  "commit": "dcb9ae78b0836a6e067d1f2abaa919f8e243d23b",
+  "frontendCommit": "1f9d62f4855c4edea523a766472515e1ba541ab2",
+  "frontendAuthor": "yunheliu68-ux",
+  "build": "npm ci --ignore-scripts && npm --prefix apps/web run build -- --base=/previews/crewtrace/",
+  "sourceChanges": [],
+  "apiGateway": "https://mon.davidwang.space/api/web",
+  "license": "Apache-2.0"
+}

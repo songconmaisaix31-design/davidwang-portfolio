@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { createProjectPreviews } from '../dist/project-preview.js';
 import { projectCard, livePreviewFor } from '../dist/render-content.js';
 import { portfolio } from '../dist/content.js';
+const previewUrl=portfolio.projects.find(x=>x.id==='crewtrace').livePreview;
 
 class Element extends EventTarget {
   attrs=new Map();classes=new Set();style={};children=[];dataset={};
@@ -30,7 +31,7 @@ function setup(reduce=false) {
   };
   function host(full=false) {
     const element=new Element(),surface=new Element(),button=new Element();
-    element.dataset={previewUrl:'https://mon.davidwang.space/',previewName:'CrewTrace',previewMode:full?'full':'card'};
+    element.dataset={previewUrl,previewName:'CrewTrace',previewMode:full?'full':'card'};
     element.querySelector=selector=>selector==='.preview-surface'?surface:button;
     return {element,surface,button};
   }
@@ -48,7 +49,7 @@ test('preview creates one isolated frame only while visible and releases it acro
   assert.equal(env.intersections[0].targets.size,1);
   env.visible(card,true);assert.equal(card.surface.children.length,1);
   const frame=card.surface.children[0];
-  assert.equal(frame.src,'https://mon.davidwang.space/');
+  assert.equal(frame.src,previewUrl);
   assert.equal(frame.tabIndex,-1);
   assert.equal(frame.attrs.get('sandbox'),'allow-scripts allow-same-origin');
   frame.dispatchEvent(new Event('load'));assert.equal(card.element.classes.has('preview-loaded'),true);
@@ -79,7 +80,7 @@ test('reduced motion leaves the original poster until the visitor explicitly sta
 test('static markup keeps an accessible project opener and does not load an iframe before visibility checks',()=>{
   const project=portfolio.projects.find(x=>x.id==='crewtrace');
   const card=projectCard(project,0);
-  assert.match(card,/data-preview-url="https:\/\/mon.davidwang.space\/"/);
+  assert.ok(card.includes(`data-preview-url="${previewUrl}"`));
   assert.match(card,/aria-label="查看 CrewTrace 项目详情与完整网站"/);
   assert.ok(!card.includes('<iframe'));
   assert.ok(card.includes(project.asset));

@@ -3,6 +3,12 @@
   "outputDirectory": "dist",
   "cleanUrls": true,
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/api/web", "destination": "https://mon.davidwang.space/api/web" },
+    { "source": "/agent-prompt.md", "destination": "/previews/crewtrace/agent-prompt.md" },
+    { "source": "/agent-prompt.en.md", "destination": "/previews/crewtrace/agent-prompt.en.md" },
+    { "source": "/skills/crewtrace/:path*", "destination": "/previews/crewtrace/skills/crewtrace/:path*" }
+  ],
   "redirects": [
     {
       "source": "/(.*)",
