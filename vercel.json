@@ -18,6 +18,26 @@
         { "key": "X-Content-Type-Options", "value": "nosniff" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
       ]
+    },
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Link", "value": "</llms.txt>; rel=\"describedby\"; type=\"text/plain\", </index.md>; rel=\"alternate\"; type=\"text/markdown\", </data/portfolio.json>; rel=\"alternate\"; type=\"application/json\"" }
+      ]
+    },
+    {
+      "source": "/:path*.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Link", "value": "</llms.txt>; rel=\"describedby\"; type=\"text/plain\"" }
+      ]
+    },
+    {
+      "source": "/data/portfolio.json",
+      "headers": [
+        { "key": "Content-Type", "value": "application/json; charset=utf-8" },
+        { "key": "Link", "value": "</llms.txt>; rel=\"describedby\"; type=\"text/plain\"" }
+      ]
     }
   ]
 }

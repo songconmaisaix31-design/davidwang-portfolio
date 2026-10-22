@@ -2,6 +2,28 @@
 
 个人作品站，以轻盈透明玻璃、大留白、系统字体和滚动过渡，展示真实项目、获奖经历与个人主张。
 
+## Agent 可读入口（2026-10-23）
+
+保留现有界面、CSS、动画、筛选和弹窗行为。项目卡片、荣誉、个人主张和关于介绍现在直接存在于初始 HTML；静态输出与浏览器交互共用 `dist/render-content.js` 中的原有渲染模板。
+
+| 路径 | 内容 |
+| --- | --- |
+| `/llms.txt` | Agent 资料索引，指向完整资料与各项目 |
+| `/index.md`、`/llms-full.txt` | 完整文字资料，包括弹窗里的项目详情、限制、技术用途与来源 |
+| `/profile.md` | 个人简介、GitHub、荣誉、主张与经历记录 |
+| `/technologies.md` | 全部技术与 AI 工具及具体用途、项目证据和素材署名 |
+| `/projects/<id>.md` | 单个项目的贡献、状态、实现范围、源码、演示与截图出处 |
+| `/data/portfolio.json` | 完整结构化资料；`schemaVersion` 表示接口版本，`updatedAt` 沿用原内容日期，`assetBaseUrl` 用于解析资产相对路径 |
+| `/sitemap.xml`、`/robots.txt` | 发现入口，受站点实际访问权限约束 |
+
+HTML head 包含 Markdown / JSON alternate 链接、llms.txt describedby 链接，以及 Schema.org ProfilePage、Person、SoftwareSourceCode / CreativeWork 的 JSON-LD。资料保留团队贡献、研究原型、Mock、示例数据和截图版本说明，不把品牌素材、推送日期或工具使用记录解释为成果认证。
+
+日常继续维护 `dist/content.js` 和 `dist/tech-data.js`，随后执行 `npm run build` 再发布。该命令无需第三方依赖，会重新生成上述文件、初始 HTML 和 JSON-LD；不要手动修改生成文件或 `generated:*` 标记内的内容。`scripts/build-agent-content.mjs` 中的 origin 对应当前正式域名 davidwang.space，迁移域名时需同步更新。原生应用继续由静态 `dist` 目录部署。
+
+这些入口与 davidwang.space 一同公开。Vercel 构建会从页面数据自动重新生成资料；HTML head 和 HTTP Link 响应头都提供发现入口。原个人资料的日期仍为 2026-10-19，本次只改变读取方式，未重新核查所有项目进度。
+
+格式参考：[llms.txt 提案](https://llmstxt.org/)、[Schema.org ProfilePage](https://schema.org/ProfilePage)、[SoftwareSourceCode](https://schema.org/SoftwareSourceCode)。
+
 ## Hello 手写引导与 Logo 行星带（2026-10-19）
 
 开场借鉴 Apple 设置欢迎屏的书写节奏，以原创 SVG 笔画缓慢写出黑色小写 `hello`，约 5.5 秒完成书写，随后淡出进入首页。每个标签页首次进入首页时播放；“进入主页”、Escape 和首页“重播引导”可控制流程。系统减少动态效果时直接进入页面，带锚点的深层链接也直接进入目标。没有字体下载或专有字体依赖。
@@ -78,7 +100,7 @@ Logo 动效支持暂停、重播引导后重新入场、减少动态效果、离
 
 ## 验证与发布
 
-无打包静态网站，部署目录 `dist`。GitHub 仓库保存网站源码，Vercel Git 集成负责预览与正式部署；`npm run build` 检查入口与本地资源引用。
+无打包静态网站，部署目录 `dist`。GitHub 仓库保存网站源码，Vercel Git 集成负责预览与正式部署；`npm run build` 生成 Agent 资料和初始 HTML，并检查入口与本地资源引用。
 
 执行 JavaScript 语法、HTML/资源引用、SVG 可解析性、项目和奖项关系检查，并进行代码复审。保留移动菜单跨断点、Escape 焦点恢复与滚动显现处理。
 
@@ -102,7 +124,7 @@ Logo 动效支持暂停、重播引导后重新入场、减少动态效果、离
 - Vercel 项目：`davidwang-portfolio`（团队 `dwwww`），部署目录 `dist`
 - 线上主域名：<https://davidwang.space>，`www.davidwang.space` 308 跳转到主域名
 
-`vercel.json` 指定 `outputDirectory: dist`，Vercel 执行 `npm run build` 校验静态产物。GitHub 账号 `songconmaisaix31-design` 已连接 Vercel，Vercel GitHub App 的仓库授权范围为 `davidwang-portfolio`。
+`vercel.json` 指定 `outputDirectory: dist`，Vercel 执行 `npm run build` 生成并校验静态产物。GitHub 账号 `songconmaisaix31-design` 已连接 Vercel，Vercel GitHub App 的仓库授权范围为 `davidwang-portfolio`。
 
 - 推送功能分支或提交 Pull Request，Vercel 自动创建预览部署。
 - 合入 `main` 后，Vercel 自动部署到 <https://davidwang.space>。

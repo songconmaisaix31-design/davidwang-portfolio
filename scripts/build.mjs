@@ -1,6 +1,7 @@
-// Vercel 构建钩子：本站无打包步骤，dist/ 就是最终产物。
-// 这里只做产物存在性校验，避免上传了空目录或漏掉入口文件。
+// Vercel 构建钩子：从页面数据生成初始 HTML 和 Agent 资料，再校验静态产物。
 import { access, readFile, stat } from 'node:fs/promises';
+
+await import('./build-agent-content.mjs');
 
 const OUT_DIR = 'dist';
 const entry = `${OUT_DIR}/index.html`;

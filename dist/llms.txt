@@ -1,0 +1,39 @@
+# David Wang · 个人作品与实践
+
+> 我围绕 Agent、上下文与协作构建工具，在真实问题里试验想法，也让每次探索留下可以继续使用的代码、经验和作品。
+
+内容快照日期：2026-10-19。这些资料来自本站维护的介绍，未在生成机器可读版本时重新核查仓库进展。
+
+项目状态、实现范围、团队贡献、Mock / 示例数据及图片版本说明均保留原文。仓库推送日期不代表功能完成日期。
+
+获奖与认证按本站个人记录呈现；品牌素材链接仅说明图像来源。技术与工具清单描述具体使用情况，不表示熟练程度或官方背书。
+
+Markdown、JSON 和网页使用相同的站点访问权限。读取这些静态文件不需要执行 JavaScript。
+
+## 个人与完整资料
+
+- [个人简介、荣誉与主张](https://davidwang.space/profile.md): 关于本人、联系方式、4 项获奖与认证、5 项个人主张及经历。
+
+- [完整网站 Markdown](https://davidwang.space/index.md): 包含所有项目详情、技术工具、来源和限制说明。
+
+- [完整文本副本](https://davidwang.space/llms-full.txt): 与 index.md 内容一致的纯文本入口。
+
+- [结构化 JSON](https://davidwang.space/data/portfolio.json): schemaVersion、profile、projects、awards、values、journey、technologies 与来源链接；asset / logo 等相对路径以 assetBaseUrl 解析。
+
+- [技术与 AI 工具](https://davidwang.space/technologies.md): 每项工具的具体用途、证据与官方来源。
+
+## 项目
+
+- [CrewTrace](https://davidwang.space/projects/crewtrace.md): 黑客松原型。围绕 Agent 任务对接与协作记录构建网络，并探索链上信誉与激励。
+
+- [OpenDashboard · 氢哨](https://davidwang.space/projects/opendashboard.md): 黑客松全场前十。把弱电网绿氢系统的异常转化为可追溯的证据、诊断与运检建议。
+
+- [RealTag](https://davidwang.space/projects/realtag.md): 黑客松全场第二。从行为标签出发，在匿名互动中找到同频的人，再逐步解锁彼此的身份。
+
+- [Astrocyte](https://davidwang.space/projects/astrocyte.md): 持续研发。连接注意力、上下文与 Agent 协作的工具平台，也是我当前的长期主线。
+
+- [Morphogenesis](https://davidwang.space/projects/morphogenesis.md): 研究原型。探索多 Agent 如何围绕长任务协作，并在失败、中断和交接之后继续推进。
+
+- [Finance Agent Lab](https://davidwang.space/projects/finance.md): 工程实践。面向多城市规则差异的配置化财务流水线，从实际业务的数据处理问题出发。
+
+- [投研分析 · 多系统协同](https://davidwang.space/projects/research.md): 一等奖作品。围绕投研分析任务，探索多个系统之间的协同。
