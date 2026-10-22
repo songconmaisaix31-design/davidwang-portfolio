@@ -1,10 +1,11 @@
-import { escapeHTML, safeURL, external, githubIcon, trophyIcon, branchURL, awardFor, logoFor, coverFor, projectCard, honorsHTML, valuesHTML, aboutHTML } from './render-content.js';
+import { escapeHTML, safeURL, external, githubIcon, trophyIcon, branchURL, awardFor, logoFor, coverFor, livePreviewFor, projectCard, honorsHTML, valuesHTML, aboutHTML } from './render-content.js';
 import { portfolio } from './content.js';
 import { initGlassSculptures } from './glass-sculpture.js';
 import { technologies } from './tech-data.js';
 import { initTechConstellation } from './tech.js';
 import { initWelcome } from './welcome.js';
 import { initSignatureWriting } from './signature.js';
+import { createProjectPreviews } from './project-preview.js';
 
 const $ = (selector, parent = document) => parent.querySelector(selector);
 const $$ = (selector, parent = document) => [...parent.querySelectorAll(selector)];
@@ -18,6 +19,7 @@ const repoSignature = repoProjects.map(p => p.id).sort().join('|');
 const repoState = Object.fromEntries(repoProjects.map(p => [p.id, { pushedAt: p.pushedAt }]));
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const dialog = $('#detail-dialog');
+const projectPreviews=createProjectPreviews();
 let filter = 'all';
 let syncing = false;
 let lastAttempt = 0;
@@ -36,9 +38,11 @@ function toast(message) {
 function renderProjects() {
   const visible = portfolio.projects.filter(p => filter === 'all' || p.category === filter);
   const grid = $('#project-grid');
+  projectPreviews.release(grid);
   grid.innerHTML = visible.map(projectCard).join('');
   grid.classList.toggle('filtered', filter !== 'all');
   observeReveals(grid);
+  projectPreviews.observe(grid);
 }
 function renderHonors() {
   $('#honors-grid').innerHTML = honorsHTML();
@@ -78,6 +82,7 @@ else reduceMotion.addListener?.(initMotion);
 
 function openDialog(html, trigger) {
   lastTrigger = trigger || document.activeElement;
+  projectPreviews.release(dialog);
   $('#dialog-content').innerHTML = html;
   dialog.scrollTop = 0;
   if (!dialog.open) {
@@ -87,6 +92,7 @@ function openDialog(html, trigger) {
     document.dispatchEvent(new CustomEvent('portfolio:dialog',{detail:{open:true}}));
   }
   $('.dialog-close').focus({ preventScroll:true });
+  projectPreviews.observe(dialog);
 }
 function figureFor(p) {
   if (!p.asset) return '';
@@ -98,7 +104,8 @@ function openProject(id, trigger) {
   if (!p) return;
   const date = repoState[p.id]?.pushedAt;
   const award = awardFor(p);
-  openDialog(`<div class="dialog-kicker">${escapeHTML(p.status)}</div><h2 id="dialog-title">${escapeHTML(p.name)}</h2><p class="dialog-subtitle">${escapeHTML(p.summary)}</p><div class="project-tags">${p.tags.map(t => `<span class="tag">${escapeHTML(t)}</span>`).join('')}</div>${figureFor(p)}${(p.additionalImages || []).map(image => figureFor({ ...p, ...image })).join('')}${award ? `<h3>${escapeHTML(award.issuer)} · ${escapeHTML(award.title)}</h3><p>${escapeHTML(award.subtitle)}</p>` : ''}<h3>从这个问题开始</h3><p>${escapeHTML(p.question)}</p><h3>项目与贡献</h3><ul>${p.details.map(d => `<li>${escapeHTML(d)}</li>`).join('')}</ul><p class="dialog-scope">${escapeHTML(p.scope)}</p><div class="dialog-actions">${p.repo ? `<a class="button button-primary" href="${escapeHTML(branchURL(p))}" ${external}>查看源代码 <span aria-hidden="true">↗</span></a>` : ''}${p.website ? `<a class="button button-glass" href="${escapeHTML(safeURL(p.website))}" ${external}>${escapeHTML(p.websiteLabel || '打开项目')} <span aria-hidden="true">↗</span></a>` : ''}${p.foundationRepo ? `<a class="quiet-link" href="${escapeHTML(safeURL(p.foundationRepo))}" ${external}>OpenDashboard 底座 ↗</a>` : ''}</div><div class="dialog-source">${p.repo ? `<span>仓库更新：${validDate(date) ? dateOnly(date) : '已收录'}</span>` : '<span>个人获奖记录</span>'}${p.source ? `<a href="${escapeHTML(safeURL(p.source))}" ${external}>项目说明 ↗</a>` : ''}</div>`, trigger);
+  const live=p.livePreview?`<figure class="dialog-figure">${livePreviewFor(p,true)}<figcaption><span>${escapeHTML(p.livePreviewLabel)}</span><a href="${escapeHTML(safeURL(p.livePreview))}" ${external}>打开完整网站 ↗</a></figcaption></figure>`:'';
+  openDialog(`<div class="dialog-kicker">${escapeHTML(p.status)}</div><h2 id="dialog-title">${escapeHTML(p.name)}</h2><p class="dialog-subtitle">${escapeHTML(p.summary)}</p><div class="project-tags">${p.tags.map(t => `<span class="tag">${escapeHTML(t)}</span>`).join('')}</div>${live}${figureFor(p)}${(p.additionalImages || []).map(image => figureFor({ ...p, ...image })).join('')}${award ? `<h3>${escapeHTML(award.issuer)} · ${escapeHTML(award.title)}</h3><p>${escapeHTML(award.subtitle)}</p>` : ''}<h3>从这个问题开始</h3><p>${escapeHTML(p.question)}</p><h3>项目与贡献</h3><ul>${p.details.map(d => `<li>${escapeHTML(d)}</li>`).join('')}</ul><p class="dialog-scope">${escapeHTML(p.scope)}</p><div class="dialog-actions">${p.repo ? `<a class="button button-primary" href="${escapeHTML(branchURL(p))}" ${external}>查看源代码 <span aria-hidden="true">↗</span></a>` : ''}${p.website ? `<a class="button button-glass" href="${escapeHTML(safeURL(p.website))}" ${external}>${escapeHTML(p.websiteLabel || '打开项目')} <span aria-hidden="true">↗</span></a>` : ''}${p.foundationRepo ? `<a class="quiet-link" href="${escapeHTML(safeURL(p.foundationRepo))}" ${external}>OpenDashboard 底座 ↗</a>` : ''}</div><div class="dialog-source">${p.repo ? `<span>仓库更新：${validDate(date) ? dateOnly(date) : '已收录'}</span>` : '<span>个人获奖记录</span>'}${p.source ? `<a href="${escapeHTML(safeURL(p.source))}" ${external}>项目说明 ↗</a>` : ''}</div>`, trigger);
 }
 function sourceLink(title, description, url) {
   return `<a href="${escapeHTML(safeURL(url))}" ${external}><strong>${escapeHTML(title)} ↗</strong><small>${escapeHTML(description)}</small></a>`;
@@ -136,6 +143,7 @@ function openTech(id,trigger) {
 }
 
 dialog.addEventListener('close', () => {
+  projectPreviews.release(dialog);
   document.body.style.overflow = previousOverflow;
   document.dispatchEvent(new CustomEvent('portfolio:dialog',{detail:{open:false}}));
   if (lastTrigger?.isConnected) lastTrigger.focus({ preventScroll:true });
@@ -312,4 +320,5 @@ initWelcome();
 initSignatureWriting();
 initGlassSculptures();
 initTechConstellation(openTech);
+projectPreviews.observe();
 if (!cache || Date.now() - cache.syncedAt >= CACHE_TTL || !cache.complete) setTimeout(() => syncRepositories(false), 900);

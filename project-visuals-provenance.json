@@ -1,6 +1,12 @@
 [
   {
     "id": "crewtrace",
+    "livePreview": {
+      "url": "https://mon.davidwang.space/",
+      "method": "Sandboxed iframe of the original deployed website, scaled in the project card and scrollable in the detail dialog. Loaded only while visible; removed when paused, hidden, filtered out or covered by another dialog.",
+      "versionScope": "Displays the deployed website, which may differ from repository main. Archived screenshots retain their original labels and source commits.",
+      "dataScope": "The preview loads the original site's public content; verification is anonymous and read-only. No business data is copied into this repository."
+    },
     "asset": "assets/crewtrace-hero-3ef15dd.png",
     "kind": "screenshot",
     "source": "https://github.com/songconmaisaix31-design/CrewTrace/blob/dcb9ae78b0836a6e067d1f2abaa919f8e243d23b/design-audit/evidence/home-desktop.png",

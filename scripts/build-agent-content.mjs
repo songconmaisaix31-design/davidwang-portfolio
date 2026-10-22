@@ -41,6 +41,7 @@ function projectMarkdown(p, level = 1) {
       p.repo && `- ${link('代码仓库', p.repo)}`,
       p.source && `- ${link('项目文档', p.source)}`,
       p.website && `- ${link(p.websiteLabel || '项目演示', p.website)}`,
+      p.livePreview && `- ${link(p.livePreviewLabel || '完整网站实时预览', p.livePreview)}（个人主页内嵌原站；内容随原站更新）`,
       p.foundationRepo && `- ${link('底座仓库', p.foundationRepo)}`,
       p.branch && `- 记录分支：${p.branch}`,
       p.sourceCommit && `- 资料对应提交：${p.sourceCommit}`,

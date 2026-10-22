@@ -50,6 +50,8 @@
       "source": "https://github.com/songconmaisaix31-design/CrewTrace/blob/main/docs/three-workspace-panels.md",
       "website": "https://mon.davidwang.space",
       "websiteLabel": "查看线上版本",
+      "livePreview": "https://mon.davidwang.space/",
+      "livePreviewLabel": "CrewTrace 完整网站 · 实时动效与交互",
       "asset": "assets/crewtrace-hero-3ef15dd.png",
       "pushedAt": "2026-10-19T09:06:19Z",
       "sourceCommit": "dcb9ae78b0836a6e067d1f2abaa919f8e243d23b",

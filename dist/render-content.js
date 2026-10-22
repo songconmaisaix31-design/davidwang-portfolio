@@ -19,11 +19,25 @@ function coverFor(project) {
   if (project.asset) return `<img src="./${escapeHTML(project.asset)}" alt="${escapeHTML(project.assetAlt || `${project.name} 项目界面`)}" width="1200" height="760" loading="lazy" decoding="async" />`;
   return `<div class="repo-cover">${githubIcon}<strong>${escapeHTML(project.name)}</strong><p>${escapeHTML(project.subtitle)}</p></div>`;
 }
+function livePreviewFor(project, full=false) {
+  const source=safeURL(project.livePreview);
+  if(!source) return '';
+  return `<div class="project-preview ${full?'project-preview-full':'project-preview-card'}" data-preview-url="${escapeHTML(source)}" data-preview-mode="${full?'full':'card'}" data-preview-name="${escapeHTML(project.name)}">
+    <img class="preview-poster" src="./${escapeHTML(project.asset)}" alt="${escapeHTML(project.assetAlt)}" width="1200" height="760" loading="lazy" decoding="async" />
+    <div class="preview-surface"></div>
+    ${full?'':`<button type="button" class="preview-open" data-project="${escapeHTML(project.id)}" aria-label="查看 ${escapeHTML(project.name)} 项目详情与完整网站"><span class="cover-arrow" aria-hidden="true">↗</span></button>`}
+    <button type="button" class="preview-toggle" data-preview-toggle aria-label="播放 ${escapeHTML(project.name)} 网站预览" aria-pressed="false">播放网站动效</button>
+  </div>`;
+}
+function projectMediaFor(project) {
+  if(project.livePreview) return `<div class="project-cover project-cover-live">${livePreviewFor(project)}</div>`;
+  return `<button class="project-cover ${project.visualKind === 'poster' ? 'poster' : project.visualKind === 'repository-logo' ? 'logo' : ''}" data-project="${escapeHTML(project.id)}" aria-label="查看 ${escapeHTML(project.name)} 项目详情">${coverFor(project)}<span class="cover-arrow" aria-hidden="true">↗</span></button>`;
+}
 function projectCard(project, index) {
   const award = awardFor(project);
   const skills = project.tags.slice(0, 3).join(' · ');
   return `<article class="project-card glass" data-id="${escapeHTML(project.id)}" data-reveal style="--delay:${(index % 2) * 100}ms">
-    <button class="project-cover ${project.visualKind === 'poster' ? 'poster' : project.visualKind === 'repository-logo' ? 'logo' : ''}" data-project="${escapeHTML(project.id)}" aria-label="查看 ${escapeHTML(project.name)} 项目详情">${coverFor(project)}<span class="cover-arrow" aria-hidden="true">↗</span></button>
+    ${projectMediaFor(project)}
     <div class="project-body">${award ? `<span class="project-award">${trophyIcon}${escapeHTML(award.issuer)} · ${escapeHTML(award.title)}</span>` : ''}<div class="project-heading"><h3><button type="button" data-project="${escapeHTML(project.id)}">${escapeHTML(project.name)}</button></h3></div><p class="project-summary">${escapeHTML(project.summary)}</p><div class="project-footer"><span>${escapeHTML(skills)}</span>${project.repo ? `<a href="${escapeHTML(branchURL(project))}" ${external} aria-label="打开 ${escapeHTML(project.name)} 的 GitHub 仓库">${githubIcon}<span>GitHub ↗</span></a>` : `<button data-project="${escapeHTML(project.id)}">了解作品 ↗</button>`}</div></div>
   </article>`;
 }
@@ -37,4 +51,4 @@ function aboutHTML() {
   return portfolio.profile.about.map(p => `<p>${escapeHTML(p)}</p>`).join('');
 }
 
-export { escapeHTML, safeURL, external, githubIcon, trophyIcon, branchURL, awardFor, logoFor, coverFor, projectCard, honorsHTML, valuesHTML, aboutHTML };
+export { escapeHTML, safeURL, external, githubIcon, trophyIcon, branchURL, awardFor, logoFor, coverFor, livePreviewFor, projectCard, honorsHTML, valuesHTML, aboutHTML };

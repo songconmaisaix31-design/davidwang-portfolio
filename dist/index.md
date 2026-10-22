@@ -134,6 +134,7 @@ Agent 开始彼此协作时，怎样知道对方做过什么？
 - [代码仓库](https://github.com/songconmaisaix31-design/CrewTrace)
 - [项目文档](https://github.com/songconmaisaix31-design/CrewTrace/blob/main/docs/three-workspace-panels.md)
 - [查看线上版本](https://mon.davidwang.space)
+- [CrewTrace 完整网站 · 实时动效与交互](https://mon.davidwang.space/)（个人主页内嵌原站；内容随原站更新）
 - 记录分支：main
 - 资料对应提交：dcb9ae78b0836a6e067d1f2abaa919f8e243d23b
 - 已记录的仓库推送时间：2026-10-19T09:06:19Z
